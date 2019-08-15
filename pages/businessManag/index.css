@@ -1,0 +1,66 @@
+.business-text-fen{
+	color: #545DFF;
+	font-size: 24upx;
+	margin-top: 10upx;
+}
+.business-text-lan{
+	display: flex;
+	align-items: center;
+}
+.business-text-lan-icon{
+	font-size: 16upx;
+	widows: 16upx;
+	height: 16upx;
+}
+.business-text-money{
+	font-size: 28upx;
+	color:#545DFF ;
+	font-weight: bold;
+}
+.business-right{
+	width: 170upx;
+	text-align: right;
+}
+.business-tab{
+	background-color: transparent;
+}
+.business-list{
+	background-color: #fff;
+	border-radius: 12upx;
+	border: 1px solid #545DFF;
+	color: #545DFF;
+}
+.active{
+	background-color: #545DFF;
+	color: #fff;
+}
+
+.business-sou{
+	padding: 6upx 40upx;
+	background-color: #3E47E1;
+	display: flex;
+}
+.business-sou-left{
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+.business-shuai{
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 60upx;
+	height: 80upx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: 1px solid #fff;
+}
+.business-sou-icon{
+	width: 32upx;
+	height: 34upx;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+.business-new-input{
+	flex-grow: 1;
+}

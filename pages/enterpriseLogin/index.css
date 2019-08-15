@@ -1,0 +1,49 @@
+.login-new-li{
+	padding: 38upx 0upx;
+	border-bottom: 1px solid #E5E5E5;
+	display: flex;
+	align-items: center;
+}
+.login-new-left{
+	padding-left: 56upx;
+	font-size: 32upx;
+	color:#595959;
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 182upx;
+}
+.login-new-right{
+	flex-grow: 1;
+	display: flex;
+	justify-content: space-between;
+	
+	align-items: center;
+}
+.login-new-jian{
+	margin-right: 66upx;
+}
+.login-new-wen{
+	font-size: 32upx;
+	color:#595959;
+}
+
+.plarc{
+	color: #AEB3C0;
+	font-size: 32upx;
+}
+.phone-me-get{
+	display: block;
+	color: #545DFF;
+	font-size: 24upx;
+	flex-grow: 0;
+		background-color: #545DFF;
+	color: #FFFFFF;
+	width: 200upx;
+	padding-left: 20upx;
+	height: 60upx;
+	line-height: 60upx !important;
+	margin-right: 36upx;
+}
+.login-new-bottom{
+	margin-top: 359upx;
+}

@@ -1,0 +1,101 @@
+.settled-code.data-v-8eab7176{
+	width: 428rpx;
+	height: 428rpx;
+	padding: 30rpx;
+	background-color: #EFEFEF;
+	margin: 0 auto;
+}
+.settled-code-img.data-v-8eab7176{
+	width: 100%;
+	height: 100%;
+}
+.settled-ts.data-v-8eab7176{
+	width: 432rpx;
+	text-align: center;
+	margin: 0 auto;
+	color: #595959;
+	font-size: 24rpx;
+	margin-top: 10rpx;
+}
+.join.data-v-8eab7176{
+	font-size: 32rpx;
+	width: 640rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	text-align: center;
+	color: #fff;
+	background-color: #545DFF;
+	margin: 0 auto;
+	margin-top: 35px;
+	border-radius: 20rpx;
+}
+.settled-ul.data-v-8eab7176{
+	margin-top: 128rpx;
+}
+.settled-bg-header.data-v-8eab7176{
+	width: 672rpx;
+	margin: 0 auto;
+	margin-top: 30rpx;
+}
+.settled-bg-top.data-v-8eab7176{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.settled-header.data-v-8eab7176{
+	width: 600rpx;
+	height: 20rpx;
+	background-color: #EFEFEF;
+	border-radius: 26rpx;
+	margin: 30rpx auto;
+	position: relative; 
+	display: -webkit-box; 
+	display: -webkit-flex; 
+	display: -ms-flexbox; 
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	/* overflow: hidden; */
+}
+.settled-bu-name.data-v-8eab7176{
+	font-size: 24rpx;
+	color:#595959 ;
+}
+.settled-buImg.data-v-8eab7176{
+	width: 44rpx;
+	height: 44rpx;
+	margin-top: 10rpx;
+	position: relative;
+	z-index: 999;
+}
+.settled-xian.data-v-8eab7176{
+	width: 300rpx;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 26rpx;
+	background-color: #545DFF;
+}
+.settled-buOne.data-v-8eab7176{
+	margin-left: -10rpx;
+}
+.settled-San.data-v-8eab7176{
+	margin-right: -10rpx;
+}
+

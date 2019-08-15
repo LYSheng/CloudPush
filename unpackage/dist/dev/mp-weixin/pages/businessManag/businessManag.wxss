@@ -1,0 +1,106 @@
+.business-text-fen.data-v-b784adb2{
+	color: #545DFF;
+	font-size: 24rpx;
+	margin-top: 10rpx;
+}
+.business-text-lan.data-v-b784adb2{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.business-text-lan-icon.data-v-b784adb2{
+	font-size: 16rpx;
+	widows: 16rpx;
+	height: 16rpx;
+}
+.business-text-money.data-v-b784adb2{
+	font-size: 28rpx;
+	color:#545DFF ;
+	font-weight: bold;
+}
+.business-right.data-v-b784adb2{
+	width: 170rpx;
+	text-align: right;
+}
+.business-tab.data-v-b784adb2{
+	background-color: transparent;
+}
+.business-list.data-v-b784adb2{
+	background-color: #fff;
+	border-radius: 12rpx;
+	border: 1px solid #545DFF;
+	color: #545DFF;
+}
+.active.data-v-b784adb2{
+	background-color: #545DFF;
+	color: #fff;
+}
+.business-sou.data-v-b784adb2{
+	padding: 6rpx 40rpx;
+	background-color: #3E47E1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.business-sou-left.data-v-b784adb2{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.business-shuai.data-v-b784adb2{
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	width: 60rpx;
+	height: 80rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	border-left: 1px solid #fff;
+}
+.business-sou-icon.data-v-b784adb2{
+	width: 32rpx;
+	height: 34rpx;
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+}
+.business-new-input.data-v-b784adb2{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+}
+

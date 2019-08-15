@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "入驻流程",
+  "usingComponents": {
+    "mpvue-city-picker": "/node-modules/mpvue-citypicker/src/mpvueCityPicker",
+    "mpvue-picker": "/components/ly-picker"
+  }
+}

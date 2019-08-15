@@ -1,0 +1,58 @@
+page.data-v-69808a0e{
+	width: 100% !important;
+	height: 100% !important;
+}
+.login-box.data-v-69808a0e{
+	width: 100%;
+	height: 100%;
+	background-color: #545DFF;
+	overflow: hidden;
+}
+.login-img.data-v-69808a0e{
+	display: block;
+	width: 600rpx;
+	height: 600rpx;
+	margin: 100rpx auto;
+	/* margin-top: 200upx; */
+}
+.login-img ._img.data-v-69808a0e{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.login-list.data-v-69808a0e{
+	padding: 22rpx 32rpx;
+	background-color: #fff;
+	color: #545DFF;
+	font-size: 14px;
+	width: 580rpx;
+	border-radius: 6px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	margin: 0 auto;
+	margin-top: 30rpx;
+}
+.list-icon.data-v-69808a0e{
+	width: 48rpx;
+	height: 39rpx;
+}
+.list-iconIcon.data-v-69808a0e{
+	width: 100%;
+	height: 100%;
+}
+.login-xia.data-v-69808a0e{
+	color: #fff;
+	background-color: transparent;
+	border: 1px solid #fff;
+}
+

@@ -1,0 +1,10 @@
+.join{
+	margin-bottom: 20upx;
+}
+.register-new-name{
+	width: 275upx;
+}
+.register-right{
+	display: flex;
+	/* justify-content: space-between; */
+}

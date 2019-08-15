@@ -1,0 +1,27 @@
+{
+  "name": "cloudpushnew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.0.0",
+    "crypto-js": "^3.1.9-1",
+    "js-base64": "^2.5.1",
+    "mpvue-citypicker": "^1.0.6",
+    "mpvue-picker": "^2.1.5",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.2.0",
+    "sha1": "^1.1.1",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "stylus-loader": "^3.0.2"
+  }
+}

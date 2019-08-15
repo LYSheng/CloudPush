@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "企业注册",
+  "usingComponents": {
+    "mpvue-city-picker": "/node-modules/mpvue-citypicker/src/mpvueCityPicker"
+  }
+}

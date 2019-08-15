@@ -1,0 +1,46 @@
+.li-name{
+	font-size: 14px;
+}
+.push-top{
+	width: 100%;
+}
+.push-top image{
+	width: 100%;
+}
+.con{
+	width: 85%;
+	padding: 30upx;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0px 0px 15px 3px #C8C7CC;
+	margin:20upx auto;
+	}
+.bi{
+	font-size: 12px;
+	color: red;
+}
+.push-li{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8upx 0px;
+	border-bottom: 1px solid #C8C7CC;
+	margin: 20upx 0px;
+}
+.li-left{
+	display: flex;
+	align-items: center;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+.li-name{
+	padding: 0px 16upx;
+}
+.li-right{
+	flex-grow: 1;
+}
+.btn{
+	margin-top: 30upx;
+}
+	
+	

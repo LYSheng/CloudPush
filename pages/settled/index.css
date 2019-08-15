@@ -1,0 +1,143 @@
+.register-li{
+	display: flex;
+	padding: 30upx 56upx;
+	border-bottom: 1px solid #EBEBEB;
+	background-color: #fff;
+	align-items: center;
+}
+.register-name{
+	width: 200upx;
+	flex-grow: 0;
+	flex-shrink: 0;
+	font-size: 32upx;
+	color: #595959;
+}
+.register-right{
+	flex-grow: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.register-input{
+	font-size: 32upx;
+	color: #222565;
+}
+.register-input.data-v-ed22c0ce {
+color: #222565;
+width: 100%;
+}
+
+.getPhone{
+	width: 120upx;
+	height: 48upx;
+	text-align: center;
+	line-height: 48upx;
+	border-radius: 4px;
+	color: #545DFF;
+	border: 1px solid #545DFF;
+	font-size: 24upx;
+}
+.register-picker{
+	display: block;
+	width: 100%;
+	height: 50upx;
+	color:#222565;
+	font-size: 32upx;
+}
+.register-upload-header{
+	padding: 16upx 56upx;
+	background-color: #FAFBFC;
+	font-size: 28upx;
+	color: #485465;
+}
+.register-ul{
+	padding-bottom: 15px;
+	}
+.join{
+	font-size: 32upx;
+	width: 640upx;
+	height: 84upx;
+	line-height: 84upx;
+	text-align: center;
+	color: #fff;
+	background-color: #545DFF;
+	margin: 35px auto;
+	margin-top: 35px;
+	border-radius: 20upx;
+}
+.upload-list{
+	padding: 20upx 56upx;
+	display: flex;
+}
+.upImg{
+	width: 176upx;
+	height: 176upx;
+}
+.imgaboust{
+	position: relative;
+}
+.imgOut{
+	width: 28upx;
+	height: 28upx;
+	position: absolute;
+	right: -14upx;
+	top: -14upx;
+}
+.register-uptext{
+	font-size: 24upx;
+	color: #999;
+	text-align: center;
+}
+.uphe{
+	
+}
+.settled-bg-header{
+	width: 700upx;
+	margin: 0 auto;
+	margin-top: 30upx;
+}
+.settled-bg-top{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.settled-header{
+	width: 636upx;
+	height: 20upx;
+	background-color: #EFEFEF;
+	border-radius: 26upx;
+	margin: 30upx auto;
+	position: relative; 
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* overflow: hidden; */
+}
+.settled-bu-name{
+	font-size: 24upx;
+	color:#595959 ;
+}
+.settled-buImg{
+	width: 44upx;
+	height: 44upx;
+	margin-top: 10upx;
+	position: relative;
+	z-index: 999;
+}
+.settled-xian{
+	width: 128upx;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 26upx;
+	background-color: #545DFF;
+}
+.settled-buOne{
+	margin-left: -10upx;
+}
+.settled-San{
+	margin-right: -10upx;
+}
+
+
