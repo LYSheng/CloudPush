@@ -406,7 +406,6 @@ var _default = {
     detail: function detail(res, code) {
       console.log(res);
       if (res == 1) {
-
         uni.setStorageSync('codeUrl', code);
         uni.navigateTo({
           url: '../settledStepTwo/settledStepTwo?query=2' });

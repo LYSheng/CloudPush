@@ -1,0 +1,49 @@
+.business-search{
+	padding: 26upx 40upx;
+	background-color: #3E47E1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.bus-search-place{
+	color: #dfdfdf;
+	font-size: 28upx;
+}
+.business-search-input{
+	font-size: 28upx;
+	color: #fff;
+	flex-grow: 1;
+}
+.business-search-icon{
+	width: 36upx;
+	height: 38upx;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+.business-tab{
+	background-color: transparent;
+}
+.business-list{
+	border: 1px solid #545DFF;
+	color: #545DFF;
+}
+.active{
+	background-color:#545DFF ;
+	color: #FFFFFF;
+}
+.business-lists{
+	position: relative;
+	overflow: hidden;
+}
+.business-jiao{
+	position: absolute;
+	width:120upx;
+	height: 30upx;
+	background-color: #FC6180;
+	color: #FFFFFF;
+	font-size: 20upx;
+	text-align: center;
+	right: -36upx;
+	top: 16upx;
+	transform: rotate(45deg);
+}

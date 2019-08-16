@@ -1,5 +1,11 @@
 <template>
 	<view class="business-box">
+		<view class="business-search">
+			<input type="text" placeholder-style="font-size:14px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
+			<view class="business-search-icon">
+				1
+			</view>
+		</view>
 		<view class="business-tab">
 			<view @tap="change(0)" :class="{active:btnnum == 0}" class="business-list ">
 				全部
@@ -48,6 +54,9 @@
 						<view @click.stop.prevent="phoneCall(item.phone)" class="business-phone">
 							联系卖家
 						</view>
+					</view>
+					<view class="business-jiao">
+						14天
 					</view>
 				</view>
 			</scroll-view>

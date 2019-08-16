@@ -163,8 +163,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
 var _http = _interopRequireDefault(__webpack_require__(/*! ../../utils/http.js */ 17));
 var _api = _interopRequireDefault(__webpack_require__(/*! ../../utils/api.js */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -249,21 +267,12 @@ var _default = { data: function data() {return { countFlag: false, btnnum: 0, pa
       // }
     }, // 回到顶部
     goTop: function goTop(e) {this.scrollTop = this.old.scrollTop;this.$nextTick(function () {this.scrollTop = 0;});uni.showToast({ icon: "none", title: "纵向滚动 scrollTop 值已被修改为 0" });}, // getList
-    getList: function getList() {var self = this;var param = { type: self.btnnum, pageNo: self.pageNo,
-        pageSize: self.pageSize };
-
-
-      _http.default.Request(_api.default.list, 'POST', param, function (res) {
-        console.log(res);
-        // if(res.pages*1>0&&self.pageNo*1>=res.pages*1){
+    getList: function getList() {var self = this;var param = { type: self.btnnum, pageNo: self.pageNo, pageSize: self.pageSize };_http.default.Request(_api.default.list, 'POST', param, function (res) {console.log(res); // if(res.pages*1>0&&self.pageNo*1>=res.pages*1){
         // 	self.countFlag=false
         // }else{
         // 	self.countFlag=true
         // }
-        self.count = res.pages;
-        if (res.list.length > 0) {
-          for (var i = 0; i < res.list.length; i++) {
-            self.list.push(res.list[i]);
+        self.count = res.pages;if (res.list.length > 0) {for (var i = 0; i < res.list.length; i++) {self.list.push(res.list[i]);
           }
         } else {
           // 停止分页

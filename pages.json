@@ -78,6 +78,12 @@
         }
         
 
+        ,{
+            "path" : "pages/income/income",
+            "style" : {
+				"navigationBarTitleText": "我的收入"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -100,7 +106,12 @@
 				"iconPath": "static/image/t31.png",
 				"selectedIconPath": "static/image/t32.png",
 				"text": "我的商家"
-			}, {
+			},{
+				"pagePath": "pages/income/income",
+				"iconPath": "static/image/t31.png",
+				"selectedIconPath": "static/image/t32.png",
+				"text": "我的收入"
+			},{
 				"pagePath": "pages/mine/mine",
 				"iconPath": "static/image/t21.png",
 				"selectedIconPath": "static/image/t22.png",
