@@ -1,5 +1,53 @@
 <template>
 	<view class="business-box">
+		<!-- 分配人员 -->
+		    <mpvue-picker ref="mpvuePicker" :mode="mode" :pickerValueDefault="pickerValueDefault" @onChange="onChange" @onConfirm="onConfirm" @onCancel="onCancel" :pickerValueArray="pickerValueArray"></mpvue-picker>
+
+		<!-- 筛选框 -->
+		<view v-if="tanFlag" class="shai-box">
+			<view class="business-sou shai-top">
+				<view class="business-sou-left">
+					<view class="business-sou-icon">
+						1
+					</view>
+					<input type="text" class="business-new-input" placeholder-style="color:#fff;font-size:14px" placeholder="请输入商家名称/负责人" value="" />
+				</view>
+				<view @click="chong" class="business-shuai shai-chong">
+					重置
+				</view>
+			</view>
+			<view class="shai-content">
+				<view @click="shaiClick" class="shai-list">
+					<view class="shai-left">
+						无人维护
+					</view>
+					<view class="shai-right">
+						<view class="shai-right-icon">
+							1
+						</view>
+						<view class="shai-right-num">
+							12家
+						</view>
+					</view>
+				</view>
+				
+				<view class="shai-list">
+					<view class="shai-left">
+						杨某某 - 18677777777
+					</view>
+					<view class="shai-right">
+						<view class="shai-right-icon">
+							1
+						</view>
+						<view class="shai-right-num">
+							12家
+						</view>
+					</view>
+				</view>
+				
+				
+			</view>
+		</view>
 		<view class="business-new-top">
 			<view class="business-sou">
 				<view class="business-sou-left">
@@ -8,7 +56,7 @@
 					</view>
 					<input type="text" class="business-new-input" placeholder-style="color:#fff;font-size:14px" placeholder="请输入商家名称/负责人" value="" />
 				</view>
-				<view class="business-shuai">
+				<view @click="shaiShow" class="business-shuai">
 					2
 				</view>
 			</view>
@@ -64,7 +112,7 @@
 						<view class="business-biao">
 							{{item.merchantCategorySecond}}
 						</view>
-						<view v-if="itee.type==1" @click.stop.prevent="phoneCall(item.phone)" class="business-phone">
+						<view v-if="item.type==1" @click.stop.prevent="phoneCall(item.phone)" class="business-phone">
 							分配
 						</view>
 						<view v-else class="business-text-fen">
@@ -78,6 +126,7 @@
 </template>
 
 <script>
+	import mpvuePicker from '../../components/ly-picker.vue';
 	import http from '../../utils/http.js'
 	import api from '../../utils/api.js'
 	// import uniLoadMore from "@/components/load-more/load-more.vue"
@@ -85,6 +134,9 @@
 		data() {
 			return {
 				countFlag:false,
+				deepLength:1,
+				mode: 'selector',
+				pickerValueDefault: [1],
 				btnnum:0,
 				pageNo:1,
 				pageSize:10,
@@ -95,9 +147,22 @@
 				    scrollTop: 0
 				},
 				count:0,
+				tanFlag:false,// 筛选条件弹窗
+				pickerValueArray:[
+					{
+					  label: '住宿费',
+					  value: 1
+					},
+					{
+					  label: '活动费',
+					  value: 2
+					}
+				]
 			}
 		},
-		// components: {uniLoadMore},
+		components: {
+			mpvuePicker
+		},
 		onShow(){
 			this.setColor()
 			this.pageNo=1;
@@ -108,6 +173,30 @@
 		// 	this.getList()
 		// },
 		methods: {
+			onConfirm(e) {
+			  console.log(e);
+			  this.$refs.mpvuePicker.hide();
+			},
+			onChange(e) {
+			  console.log(e);
+			 
+			},
+			onCancel(e) {
+			  console.log(e);
+			   this.$refs.mpvuePicker.hide();
+			},
+			// 点击筛选条件
+			shaiClick(){
+				console.log(111)
+			},
+			// 筛选
+			shaiShow(){
+				this.tanFlag=true
+			},
+			// 重置筛选
+			chong(){
+				this.tanFlag=false
+			},
 			// 设置导航背景色
 			             setColor(){
 			                 uni.setNavigationBarColor({
@@ -204,9 +293,7 @@
 			},
 			// 联系商家
 			phoneCall(phone){
-				uni.makePhoneCall({
-					phoneNumber: phone //仅为示例
-				});
+				this.$refs.mpvuePicker.show();
 			},
 			// 点击详情
 			detail(res,code){

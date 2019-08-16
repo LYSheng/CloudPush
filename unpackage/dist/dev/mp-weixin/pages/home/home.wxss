@@ -1,5 +1,10 @@
 
-.join.data-v-a32c5176{
+.home-box{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+}
+.join{
 	font-size: 32rpx;
 	width: 640rpx;
 	height: 84rpx;
@@ -11,17 +16,17 @@
 	margin-top: 35px;
 	border-radius: 20rpx;
 }
-.home-img.data-v-a32c5176{
+.home-img{
 	margin: 0 auto;
 	margin-top: 150rpx;
 }
-.home-index.data-v-a32c5176{
+.home-index{
 	display: block;
 	width: 680rpx;
 	height: 396rpx;
 	margin: 0 auto;
 }
-.home-title.data-v-a32c5176{
+.home-title{
 	
 	/* padding: 0px 10upx; */
 	display: -webkit-box;
@@ -36,18 +41,18 @@
 	    -ms-flex-align: center;
 	        align-items: center;
 }
-.home-js.data-v-a32c5176{
+.home-js{
 	width: 400rpx;
 	margin: 0 auto;
 	margin-top: 45rpx;
 }
-.home-jImg.data-v-a32c5176{
+.home-jImg{
 	display: block;
 	width: 91%;
 	height: 16rpx;
 	margin: 20rpx auto;
 }
-.home-img-box.data-v-a32c5176{
+.home-img-box{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -63,15 +68,15 @@
 	width: 364rpx;
 	margin: 20rpx auto;
 }
-.home-texts.data-v-a32c5176{
+.home-texts{
 	font-size: 16rpx;
 	color: #545DFF;
 }
-.home-text.data-v-a32c5176{
+.home-text{
 	font-size: 44rpx;
 	color: #222565;
 }
-.home-tImg.data-v-a32c5176{
+.home-tImg{
 	display: block;
 	width: 40rpx;
 	height: 16rpx;

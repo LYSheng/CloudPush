@@ -34,4 +34,469 @@ button{
 	padding: 0px!important;
 	line-height: 0 !important;
 }
+.join{
+	font-size: 32rpx;
+	width: 640rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	text-align: center;
+	color: #fff;
+	background-color: #545DFF;
+	margin: 0 auto;
+	margin-top: 35px;
+	border-radius: 20rpx;
+}
+.join-hui{
+	font-size: 32rpx;
+	width: 640rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.25);
+	background-color:rgba(84,93,255,0.1);
+	margin: 0 auto;
+	margin-top: 30rpx;
+	border-radius: 20rpx;
+}
+/* 注册列表开始 */
+.register-li{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 30rpx 56rpx;
+	border-bottom: 1px solid #EBEBEB;
+	background-color: #fff;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.register-name{
+	width: 200rpx;
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	font-size: 32rpx;
+	color: #595959;
+}
+.register-right{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.register-input{
+	font-size: 32rpx;
+	color: #222565;
+}
+.getPhone{
+	width: 120rpx;
+	height: 48rpx;
+	text-align: center;
+	line-height: 48rpx;
+	border-radius: 4px;
+	color: #545DFF;
+	border: 1px solid #545DFF;
+	font-size: 24rpx;
+	line-height: 47rpx!important;
+	background-color: #FFFFFF!important;
+}
+.register-picker{
+	width: 100%;
+	height: 50rpx;
+	color:#222565;
+	font-size: 32rpx;
+}
+.register-upload-header{
+	padding: 16rpx 56rpx;
+	background-color: #FAFBFC;
+	font-size: 32rpx;
+	color: #485465;
+}
+.register-ul{
+	padding-bottom: 15px;
+}
+.join{
+	font-size: 32rpx;
+	width: 640rpx;
+	height: 84rpx;
+	line-height: 84rpx;
+	text-align: center;
+	color: #fff;
+	background-color: #545DFF;
+	margin: 0 auto;
+	margin-top: 35px;
+	border-radius: 20rpx;
+}
+.upload-list{
+	padding: 20rpx 56rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.upImg{
+	width: 176rpx;
+	height: 176rpx;
+}
+.upImgmargin{
+	/* display: block; */
+	margin-left: 15rpx;
+}
+.imgaboust{
+	position: relative;
+}
+.imgOut{
+	width: 24rpx;
+	height: 24rpx;
+	position: absolute;
+	right: -12rpx;
+	top: -12rpx;
+}
+.register-uptext{
+	font-size: 20rpx;
+	color: #999;
+	text-align: center;
+}
+.uphe{
+}
+/* 注册结束 */
+/* 弹窗 */
+.register-box{
+	width: 100%;
+	height: 100%;
+}
+.phone-mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background-color: rgba(0,0,0,0.5);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	z-index: 99;
+}
+.phone-me{
+	width: 600rpx;
+	height: 472rpx;
+	border-radius: 24rpx;
+	background-color: #fff;
+}
+.phone-me-list{
+	padding: 20rpx 30rpx;
+	border-bottom: 1px solid #E5E5E5;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.phone-me-name{
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	margin-right:30rpx;
+	width: 126rpx;
+}
+.phone-me-right{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.phone-font{
+	font-size: 28rpx;
+	color: #222565;
+}
+.phone-place{
+		font-size: 28rpx;
+	color: #B2B2B2;
+}
+.phone-me-get{
+	display: block;
+	color: #545DFF;
+	font-size: 24rpx;
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+		background-color: #545DFF;
+	color: #FFFFFF;
+	width: 200rpx;
+	padding: -20rpx 0rpx;
+	padding-left: 20rpx;
+	height: 60rpx;
+	line-height: 60rpx !important;
+}
+.phone-me-input{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+}
+.phone-me-bottom{
+	padding: 54rpx 50rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.phone-me-btn{
+	width: 240rpx;
+	height: 84rpx;
+	text-align: center;
+	line-height: 84rpx;
+	border-radius: 12rpx;
+	background-color: #545DFF;
+	color: #FFFFFF;
+	font-size: 32rpx;
+}
+.phone-me-btn-none{
+	color: #808080;
+	background-color: #dfdfdf;
+	color: #fff;
+}
+/* 商家  管理列表   开始 */
+.business-box{
+	  display:-webkit-box;
+	  display:-webkit-flex;
+	  display:-ms-flexbox;
+	  display:flex;    
+	  -webkit-box-orient:vertical;    
+	  -webkit-box-direction:normal;    
+	  -webkit-flex-direction:column;    
+	      -ms-flex-direction:column;    
+	          flex-direction:column; 
+	  height:100%;
+}
+.business-context{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	overflow-y: auto;
+}
+.business-tab{
+	/* flex: 0; */
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	background-color: #545DFF;
+	padding: 20rpx;
+}
+.business-list{
+	width: 156rpx;
+	height: 70rpx;
+	border: 1px solid #fff;
+	text-align: center;
+	line-height: 70rpx;
+	font-size: 28rpx;
+	color: #FFFFFF;
+	border-radius:12rpx;
+}
+.active{
+	background-color: #FFFFFF;
+	color: #545DFF;
+}
+.business-ul{
+	width: 100%;
+	height: 100%;
+	/* padding: 0px 20upx; */
+	overflow-y: auto;
+}
+.business-lists{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+/* 	width: 100upx; */
+	border-radius: 16rpx;
+	padding: 32rpx 36rpx;
+	background-color: #FFFFFF;
+	margin-top: 20rpx;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
+	        box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
+	width: 85%;
+	margin: 20rpx auto;
+}
+.business-left{
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+}
+.business-icon{
+}
+.business-con{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+}
+.business-right{
+	-webkit-box-flex: 0;
+	-webkit-flex-grow: 0;
+	    -ms-flex-positive: 0;
+	        flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	width: 124rpx;
+}
+.business-title{
+	color: #595959;
+	font-size: 24rpx;
+	margin-bottom: 10rpx;
+	font-weight: bold;
+}
+.business-text{
+	font-size:22rpx;
+font-weight:400;
+color:#595959;
+}
+.business-left{
+	width: 112rpx;
+	height: 112rpx;
+	border-radius: 50%;
+	margin-right: 24rpx;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(41,47,76,0.1);
+	        box-shadow: 0px 0px 20px 0px rgba(41,47,76,0.1);
+}
+.business-icon{
+	width: 100%;
+	height: 100%;
+}
+.business-biao{
+	font-size:24rpx;
+font-weight:400;
+color:rgba(89,89,89,1);
+line-height:34rpx;
+}
+.business-phone{
+	width: 120rpx;
+	height: 48rpx;
+	border-radius:8rpx;
+border:1px solid rgba(84,93,255,1);
+text-align: center;
+line-height: 48rpx;
+margin-top: 10rpx;
+font-size: 24rpx;
+color: #545DFF;
+}
+.none-box{
+	margin: 0 auto;
+}
+.none-img{
+	display: block;
+	width: 360rpx;
+	height: 292rpx;
+	margin: 0 auto;
+	margin-top: 200rpx;
+}
+.none-text{
+	font-size: 28rpx;
+	text-align: center;
+	color: #333;
+	margin-top: 20rpx;
+}
+.business-datanone{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	/* align-items: center; */
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+/* 结束 */
+.m20{
+	margin-top: 20rpx;
+}
 

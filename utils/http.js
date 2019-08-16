@@ -24,9 +24,15 @@ export default {
 						return success(result)
 					}else if(res.data.code==10102){
 						// 退出登录
-						uni.navigateTo({
-							url: '../pages/login/login'
+						uni.showToast({
+							icon:'none',
+							title: res.data.error_txt
 						});
+						setTimeout(()=>{
+							uni.navigateTo({
+								url: '../pages/login/login'
+							});
+						},2000)
 					}else{
 						uni.showToast({
 							icon:'none',
@@ -98,11 +104,15 @@ export default {
 						// 退出登录
 						uni.showToast({
 							icon:'none',
-							title: res.data.error_txt
+							title: res.data.error_txt+'请重新登陆'
 						});
-						uni.navigateTo({
-							url: '/pages/login/login?type=1'
-						});
+						setTimeout(()=>{
+							uni.navigateTo({
+								url: '/pages/login/login?type=1'
+							});
+							console.log(11)
+						},1500)
+						
 					}else{
 						uni.showToast({
 							icon:'none',

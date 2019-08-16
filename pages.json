@@ -1,9 +1,21 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-		    "path" : "pages/enterpriseLogin/enterpriseLogin",
+			"path" : "pages/login/login",
+			"style" : {
+				"navigationBarTitleText": "传火云推"
+			}
+		},
+		{
+		    "path" : "pages/businessDetails/businessDetails",
 		    "style" : {
-				"navigationBarTitleText": "企业登录"
+				"navigationBarTitleText": "商家详情"
+			}
+		},
+		{
+		    "path" : "pages/businessManag/businessManag",
+		    "style" : {
+				"navigationBarTitleText": "商家管理"
 			}
 		},
 		{
@@ -13,9 +25,9 @@
 			}
 		},
 		{
-			"path" : "pages/login/login",
-			"style" : {
-				"navigationBarTitleText": "传火云推"
+		    "path" : "pages/home/home",
+		    "style" : {
+				"navigationBarTitleText": "商家入驻"
 			}
 		},
 		{
@@ -24,18 +36,15 @@
 				"navigationBarTitleText": "注册"
 			}
 		},
-
-
-
 		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "商家入驻"
+		    "path" : "pages/enterpriseLogin/enterpriseLogin",
+		    "style" : {
+				"navigationBarTitleText": "企业登录"
 			}
 		},
 		{
-		    "path" : "pages/home/home",
-		    "style" : {
+			"path": "pages/index/index",
+			"style": {
 				"navigationBarTitleText": "商家入驻"
 			}
 		},
@@ -67,12 +76,8 @@
             "path" : "pages/merchantManage/merchantManage",
             "style" : {}
         }
-        ,{
-            "path" : "pages/businessManag/businessManag",
-            "style" : {
-				"navigationBarTitleText": "商家管理"
-			}
-        }
+        
+
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -471,13 +471,16 @@ color: #545DFF;
 }
 .none-img{
 	display: block;
-	width: 200rpx;
-	height: 200rpx;
+	width: 360rpx;
+	height: 292rpx;
 	margin: 0 auto;
+	margin-top: 200rpx;
 }
 .none-text{
 	font-size: 28rpx;
 	text-align: center;
+	color: #333;
+	margin-top: 20rpx;
 }
 .business-datanone{
 	display: -webkit-box;
@@ -486,10 +489,7 @@ color: #545DFF;
 	display: flex;
 	width: 100%;
 	height: 100%;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	/* align-items: center; */
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;

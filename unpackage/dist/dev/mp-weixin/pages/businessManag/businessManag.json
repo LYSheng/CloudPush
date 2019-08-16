@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "商家管理",
-  "usingComponents": {}
+  "usingComponents": {
+    "mpvue-picker": "/components/ly-picker"
+  }
 }

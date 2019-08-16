@@ -45,6 +45,17 @@ page{
 	/* font-weight: bold; */
 }
 .list-cons::after{ border: none;} 
+.list-conscheng{
+	display: block;
+	flex-grow: 1;
+	height: 82upx;
+	line-height: 82upx !important;
+	color: #fff;
+	font-size: 28upx;
+	background-color: transparent !important;
+	border: none !important;
+}
+.list-conscheng::after{ border: none;} 
 .list-icon{
 	width: 48upx;
 	height: 39upx;

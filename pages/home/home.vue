@@ -14,7 +14,7 @@
 					DIGITAL  LINK  BUSINESS  FUTUER
 				</view>
 				<image class="homr-left home-tImg" src="/static/image/border-right.png" mode=""></image>
-			</view>
+			</view>  
 		</view>
 		<view class="join" @click='join'>
 			商家入驻
@@ -39,7 +39,12 @@
 	}
 </script>
 
-<style scoped>
+<style>
+	.home-box{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
 .join{
 	font-size: 32upx;
 	width: 640upx;

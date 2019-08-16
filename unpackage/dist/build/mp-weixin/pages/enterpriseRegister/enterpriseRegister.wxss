@@ -1,0 +1,14 @@
+.join.data-v-0bb57065{
+	margin-bottom: 20rpx;
+}
+.register-new-name.data-v-0bb57065{
+	width: 275rpx;
+}
+.register-right.data-v-0bb57065{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/* justify-content: space-between; */
+}
+

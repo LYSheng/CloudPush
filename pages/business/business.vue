@@ -13,11 +13,11 @@
 			<view @tap="change(1)" :class="{active:btnnum == 1}" class="business-list">
 				未激活
 			</view>
-		</view>
+		</view> 
 		<view class="business-context">
 			<view v-if="countFlag" class="business-datanone">
 				<view class="none-box">
-					<image class="none-img" src="/static/image/zw.png" mode=""></image>
+					<image class="none-img" src="/static/image/wu.png" mode=""></image>
 					<view class="none-text">
 						暂无数据
 					</view>

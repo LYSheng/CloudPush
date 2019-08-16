@@ -358,19 +358,22 @@
 	}
 	.none-img{
 		display: block;
-		width: 200upx;
-		height: 200upx;
+		width: 360upx;
+		height: 292upx;
 		margin: 0 auto;
+		margin-top: 200upx;
 	}
 	.none-text{
 		font-size: 28upx;
 		text-align: center;
+		color: #333;
+		margin-top: 20upx;
 	}
 	.business-datanone{
 		display: flex;
 		width: 100%;
 		height: 100%;
-		align-items: center;
+		/* align-items: center; */
 		justify-content: center;
 	}
 	/* 结束 */

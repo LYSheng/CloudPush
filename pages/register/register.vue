@@ -56,7 +56,7 @@
 						<block v-if="imageSrcOne">
 							<view class="imgaboust">
 								<image @click="imageSrcOneNone" class="imgOut" src="/static/image/up2.png" mode=""></image>
-								<image :src="imageSrcOne" class="upImg" mode="widthFix"></image>
+								<image @click="previewImage(imageSrcOne)" :src="imageSrcOneZs" class="upImg" mode="widthFix"></image>
 							</view>
 						</block>
 						<block v-else>
@@ -70,7 +70,7 @@
 						<block v-if="imageSrcTwo">
 							<view class="imgaboust">
 								<image @click="imageSrcTwoNone" class="imgOut" src="/static/image/up2.png" mode=""></image>
-								<image :src="imageSrcTwo" class="upImg upImgmargin" mode="widthFix"></image>
+								<image @click="previewImage(imageSrcTwo)" :src="imageSrcTwoZs" class="upImg upImgmargin" mode="widthFix"></image>
 							</view>
 						</block>
 						<block v-else>
@@ -148,7 +148,9 @@
 				 adders:'',//详细地址
 				 idCard:'',//身份证
 				 imageSrcOne:'',//正面
+				 imageSrcOneZs:'',//正面zs
 				 imageSrcTwo:'',//反面
+				 imageSrcTwoZs:'',//反面zs
 				 address:'请选择地址',//常住地
 				 countdown:'获取验证码',
 				 timestatus:false,
@@ -169,6 +171,23 @@
 			this.session=uni.getStorageSync('session');
 		},
 		methods: {
+			// 预览
+			previewImage(url){
+				let arrayImg=[]
+				arrayImg.push(url)
+				uni.previewImage({
+					urls: arrayImg,
+					longPressActions: {
+						itemList: ['发送给朋友', '保存图片', '收藏'],
+						success: function(data) {
+							console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
+						},
+						fail: function(err) {
+							console.log(err.errMsg);
+						}
+					}
+				});
+			},
 			// 获取手机号
 			getPhoneNumber: function(e) {  
                 console.log(e);  
@@ -197,11 +216,12 @@
 					// self.loading=false
 					console.log(res)
 					self.phone=res.mobile
-					uni.setStorageSync('phone', self.phone);
+					uni.setStorageSync('phone',res.mobile);
 				})
 			},
 			// 上传正面   
 			chooseImageOne: function() {
+				let self=this
 				uni.chooseImage({
 					count: 1,
 					sizeType: ['compressed'],
@@ -220,6 +240,7 @@
 							name: 'file',
 							header:{"Content-Type": "multipart/form-data"},
 							success: (res) => {
+								console.log(res)
 								console.log( JSON.parse(res.data))
 								let datasOne=JSON.parse(res.data)
 								uni.showToast({
@@ -227,7 +248,8 @@
 									icon: 'success',
 									duration: 1000
 								})
-								this.imageSrcOne = datasOne.data
+								self.imageSrcOne = datasOne.data
+								self.imageSrcOneZs=imageSrc
 							},
 							fail: (err) => {
 								console.log('uploadImage fail', err);
@@ -245,6 +267,7 @@
 			},
 			// 上传反面图片
 			chooseImageTwo: function() {
+				let self=this
 				uni.chooseImage({
 					count: 1,
 					sizeType: ['compressed'],
@@ -265,7 +288,8 @@
 									icon: 'success',
 									duration: 1000
 								})
-								this.imageSrcTwo = datasTwo.data
+								self.imageSrcTwo = datasTwo.data
+								self.imageSrcTwoZs=imageSrc
 							},
 							fail: (err) => {
 								console.log('uploadImage fail', err);

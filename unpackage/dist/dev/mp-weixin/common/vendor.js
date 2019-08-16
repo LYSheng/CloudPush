@@ -753,7 +753,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6965,7 +6965,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -6986,14 +6986,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7069,7 +7069,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7598,9 +7598,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!*************************************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FenterpriseLogin%2FenterpriseLogin"} ***!
-  \*************************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FbusinessManag%2FbusinessManag"} ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7608,8 +7608,8 @@ function normalizeComponent (
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _enterpriseLogin = _interopRequireDefault(__webpack_require__(/*! ./pages/enterpriseLogin/enterpriseLogin.vue */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_enterpriseLogin.default);
+var _businessManag = _interopRequireDefault(__webpack_require__(/*! ./pages/businessManag/businessManag.vue */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_businessManag.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -7652,9 +7652,15 @@ var baseUrl = 'https://api.chuanhuoapp.com';var _default =
             return _success(result);
           } else if (res.data.code == 10102) {
             // 退出登录
-            uni.navigateTo({
-              url: '../pages/login/login' });
+            uni.showToast({
+              icon: 'none',
+              title: res.data.error_txt });
 
+            setTimeout(function () {
+              uni.navigateTo({
+                url: '../pages/login/login' });
+
+            }, 2000);
           } else {
             uni.showToast({
               icon: 'none',
@@ -7726,10 +7732,14 @@ var baseUrl = 'https://api.chuanhuoapp.com';var _default =
             // 退出登录
             uni.showToast({
               icon: 'none',
-              title: res.data.error_txt });
+              title: res.data.error_txt + '请重新登陆' });
 
-            uni.navigateTo({
-              url: '/pages/login/login?type=1' });
+            setTimeout(function () {
+              uni.navigateTo({
+                url: '/pages/login/login?type=1' });
+
+              console.log(11);
+            }, 1500);
 
           } else {
             uni.showToast({
@@ -17079,9 +17089,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 61 */,
 /* 62 */,
 /* 63 */
-/*!*****************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
-  \*****************************************************************************************/
+/*!*******************************************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FenterpriseRegister%2FenterpriseRegister"} ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17089,8 +17099,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_login.default);
+var _enterpriseRegister = _interopRequireDefault(__webpack_require__(/*! ./pages/enterpriseRegister/enterpriseRegister.vue */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_enterpriseRegister.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17102,9 +17112,9 @@ createPage(_login.default);
 /* 69 */,
 /* 70 */,
 /* 71 */
-/*!***********************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fregister%2Fregister"} ***!
-  \***********************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fhome%2Fhome"} ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17112,8 +17122,8 @@ createPage(_login.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _register = _interopRequireDefault(__webpack_require__(/*! ./pages/register/register.vue */ 72));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_register.default);
+var _home = _interopRequireDefault(__webpack_require__(/*! ./pages/home/home.vue */ 72));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_home.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17125,9 +17135,9 @@ createPage(_register.default);
 /* 77 */,
 /* 78 */,
 /* 79 */
-/*!*****************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \*****************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fregister%2Fregister"} ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17135,8 +17145,8 @@ createPage(_register.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 80));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
+var _register = _interopRequireDefault(__webpack_require__(/*! ./pages/register/register.vue */ 80));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_register.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17148,9 +17158,9 @@ createPage(_index.default);
 /* 85 */,
 /* 86 */,
 /* 87 */
-/*!***************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fhome%2Fhome"} ***!
-  \***************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17158,8 +17168,8 @@ createPage(_index.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _home = _interopRequireDefault(__webpack_require__(/*! ./pages/home/home.vue */ 88));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_home.default);
+var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ 88));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_login.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17171,9 +17181,9 @@ createPage(_home.default);
 /* 93 */,
 /* 94 */,
 /* 95 */
-/*!***********************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fbusiness%2Fbusiness"} ***!
-  \***********************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FenterpriseLogin%2FenterpriseLogin"} ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17181,8 +17191,8 @@ createPage(_home.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _business = _interopRequireDefault(__webpack_require__(/*! ./pages/business/business.vue */ 96));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_business.default);
+var _enterpriseLogin = _interopRequireDefault(__webpack_require__(/*! ./pages/enterpriseLogin/enterpriseLogin.vue */ 96));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_enterpriseLogin.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17194,9 +17204,9 @@ createPage(_business.default);
 /* 101 */,
 /* 102 */,
 /* 103 */
-/*!*********************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fsettled%2Fsettled"} ***!
-  \*********************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17204,8 +17214,8 @@ createPage(_business.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _settled = _interopRequireDefault(__webpack_require__(/*! ./pages/settled/settled.vue */ 104));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_settled.default);
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 104));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17217,9 +17227,9 @@ createPage(_settled.default);
 /* 109 */,
 /* 110 */,
 /* 111 */
-/*!***************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fmine%2Fmine"} ***!
-  \***************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fbusiness%2Fbusiness"} ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17227,8 +17237,8 @@ createPage(_settled.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _mine = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/mine.vue */ 112));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_mine.default);
+var _business = _interopRequireDefault(__webpack_require__(/*! ./pages/business/business.vue */ 112));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_business.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17240,9 +17250,9 @@ createPage(_mine.default);
 /* 117 */,
 /* 118 */,
 /* 119 */
-/*!***********************************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FsettledStepTwo%2FsettledStepTwo"} ***!
-  \***********************************************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fsettled%2Fsettled"} ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17250,8 +17260,8 @@ createPage(_mine.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _settledStepTwo = _interopRequireDefault(__webpack_require__(/*! ./pages/settledStepTwo/settledStepTwo.vue */ 120));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_settledStepTwo.default);
+var _settled = _interopRequireDefault(__webpack_require__(/*! ./pages/settled/settled.vue */ 120));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_settled.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17263,9 +17273,9 @@ createPage(_settledStepTwo.default);
 /* 125 */,
 /* 126 */,
 /* 127 */
-/*!***********************************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FmerchantManage%2FmerchantManage"} ***!
-  \***********************************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2Fmine%2Fmine"} ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17273,8 +17283,8 @@ createPage(_settledStepTwo.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _merchantManage = _interopRequireDefault(__webpack_require__(/*! ./pages/merchantManage/merchantManage.vue */ 128));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_merchantManage.default);
+var _mine = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/mine.vue */ 128));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_mine.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
@@ -17285,10 +17295,56 @@ createPage(_merchantManage.default);
 /* 132 */,
 /* 133 */,
 /* 134 */,
-/* 135 */,
+/* 135 */
+/*!***********************************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FsettledStepTwo%2FsettledStepTwo"} ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _settledStepTwo = _interopRequireDefault(__webpack_require__(/*! ./pages/settledStepTwo/settledStepTwo.vue */ 136));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_settledStepTwo.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
 /* 136 */,
 /* 137 */,
-/* 138 */
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */
+/*!***********************************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FmerchantManage%2FmerchantManage"} ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _merchantManage = _interopRequireDefault(__webpack_require__(/*! ./pages/merchantManage/merchantManage.vue */ 144));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_merchantManage.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */
 /*!********************************************************************************************************!*\
   !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/node_modules/mpvue-citypicker/src/city-data/province.js ***!
   \********************************************************************************************************/
@@ -17437,7 +17493,7 @@ var provinceData = [{
 provinceData;exports.default = _default;
 
 /***/ }),
-/* 139 */
+/* 155 */
 /*!****************************************************************************************************!*\
   !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/node_modules/mpvue-citypicker/src/city-data/city.js ***!
   \****************************************************************************************************/
@@ -18950,7 +19006,7 @@ var cityData = [
 cityData;exports.default = _default;
 
 /***/ }),
-/* 140 */
+/* 156 */
 /*!****************************************************************************************************!*\
   !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/node_modules/mpvue-citypicker/src/city-data/area.js ***!
   \****************************************************************************************************/
@@ -31502,14 +31558,14 @@ var areaData = [
 areaData;exports.default = _default;
 
 /***/ }),
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */
 /*!***************************************************************!*\
   !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/utils/index.js ***!
   \***************************************************************/
@@ -31597,37 +31653,6 @@ var fixPickerValueDefault = function fixPickerValueDefault(pickerValue, mode, pi
 };exports.fixPickerValueDefault = fixPickerValueDefault;
 
 /***/ }),
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */
-/*!*******************************************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FenterpriseRegister%2FenterpriseRegister"} ***!
-  \*******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _enterpriseRegister = _interopRequireDefault(__webpack_require__(/*! ./pages/enterpriseRegister/enterpriseRegister.vue */ 154));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_enterpriseRegister.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
-
-/***/ }),
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
 /* 165 */,
 /* 166 */,
 /* 167 */,
@@ -31635,10 +31660,19 @@ createPage(_enterpriseRegister.default);
 /* 169 */,
 /* 170 */,
 /* 171 */,
-/* 172 */
-/*!*********************************************************************************************************!*\
-  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FbusinessManag%2FbusinessManag"} ***!
-  \*********************************************************************************************************/
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */
+/*!*************************************************************************************************************!*\
+  !*** D:/项目/翼倍/lys-project/uniapp/CloudPushNew/main.js?{"page":"pages%2FbusinessDetails%2FbusinessDetails"} ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31646,8 +31680,8 @@ createPage(_enterpriseRegister.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _businessManag = _interopRequireDefault(__webpack_require__(/*! ./pages/businessManag/businessManag.vue */ 173));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_businessManag.default);
+var _businessDetails = _interopRequireDefault(__webpack_require__(/*! ./pages/businessDetails/businessDetails.vue */ 182));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_businessDetails.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ })

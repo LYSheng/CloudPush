@@ -95,7 +95,7 @@
 						<block v-if="imageSrc">
 							<view class="imgaboust">
 								<image @click="imageSrcOneNone" class="imgOut" src="/static/image/up2.png" mode=""></image>
-								<image :src="imageSrc" class="upImg" mode="widthFix"></image>
+								<image @click="previewImage(imgUrlZs)" :src="imgUrlZs" class="upImg" mode="widthFix"></image>
 							</view>
 							
 						</block>
@@ -191,6 +191,7 @@
 				  merchantCategorySecond:'',//二级
 				  addressDetail:'',//详细地址
 				  imageUrl:'',//照片
+				  imgUrlZs:'',
 				  leadingName:'',//负责人名称
 				  name:'',//商户名称
 				  phone:'',//联系方式
@@ -212,6 +213,23 @@
 			
 		},
 		methods: {
+			// 预览
+			previewImage(url){
+				let arrayImg=[]
+				arrayImg.push(url)
+				uni.previewImage({
+					urls: arrayImg,
+					longPressActions: {
+						itemList: ['发送给朋友', '保存图片', '收藏'],
+						success: function(data) {
+							console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
+						},
+						fail: function(err) {
+							console.log(err.errMsg);
+						}
+					}
+				});
+			},
 			// 获取商户类型
 			queryCategory(){
 				let self=this
@@ -247,6 +265,7 @@
 									duration: 1000
 								})
 								this.imageSrc = datas.data
+								this.imgUrlZs=imageSrc
 							},
 							fail: (err) => {
 								console.log('uploadImage fail', err);
