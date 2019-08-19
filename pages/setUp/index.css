@@ -1,0 +1,21 @@
+.setUpList{
+	padding: 48upx 58upx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #EBEBEB;
+}
+.setUpName{
+	color: #595959;
+	font-size: 32upx;
+	flex-grow: 1;
+}
+.setUpMore{
+	width: 20upx;
+	height: 32upx;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+.setUpJoin{
+	margin-top: 680upx;
+}

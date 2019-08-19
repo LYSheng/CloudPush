@@ -1,0 +1,105 @@
+.income-list-box{
+	display: flex;
+	flex-direction:column;
+	height:100%; 
+}
+.list-box-top{
+	padding: 20upx 40upx;
+	border-bottom: 1px solid #EBEBEB;
+}
+.income-list-top{
+	display: flex;
+	padding: 32upx 40upx;
+	background-color: #FFFFFF;
+	box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
+	border-radius: 20upx;
+	position: relative;
+	overflow: hidden;
+	
+}
+.incomeListTopImg{
+	width: 92upx;
+	height: 92upx;
+	margin-right: 16upx;
+}
+.income-detail-box{
+	color: #595959;
+	font-size: 24upx;
+}
+.income-detail-money{
+	color: #545DFF;
+	font-size: 40upx;
+}
+.income-bian{
+	width: 160upx;
+	height: 160upx;
+	background-color: rgba(41, 47, 76, 0.1);
+	position: absolute;
+	right: -80upx;
+	border-radius: 50%;
+	top: 0upx;
+}
+.income-uls{
+	flex: 1;
+	overflow-y: auto;
+}
+.income-li{
+	padding: 20upx 74upx;
+	border-bottom: 1px solid #EBEBEB;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	align-items: center;
+	overflow: hidden;
+}
+.income-jiaobiao{
+	position: absolute;
+	width:120upx;
+	height: 30upx;
+	background-color: #FC6180;
+	color: #FFFFFF;
+	font-size: 20upx;
+	text-align: center;
+	right: -36upx;
+	top: 16upx;
+	transform: rotate(45deg);
+}
+.income-jiaobiaoge{
+	position: absolute;
+	width:120upx;
+	height: 30upx;
+	background-color: #FFB701;
+	color: #FFFFFF;
+	font-size: 20upx;
+	text-align: center;
+	right: -36upx;
+	top: 16upx;
+	transform: rotate(45deg);
+}
+.income-li-left{
+	flex-grow: 1;
+	
+}
+.income-name{
+	color: #595959;
+	font-size: 24upx;
+	font-weight: 500;
+}
+.income-yuan{
+	color: #7A7A7A;
+	font-size: 20upx;
+	margin: 8upx 0upx;
+}
+.income-time{
+	color: #545DFF;
+	font-size: 20upx;
+	
+}
+.income-li-right{
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 190upx;
+	color: #545DFF;
+	font-size: 28upx;
+	font-weight: bold;
+}

@@ -1,0 +1,91 @@
+.income-box{
+	width: 100%;
+	height: 100%;
+}
+.income-top{
+	width: 100%;
+	height: 450upx;
+	background-color: #545DFF;
+	display: flex;
+	position: relative;
+	align-items: center;
+}
+.income-img{
+	width: 198upx;
+	height: 198upx;
+	margin-right:42upx ;
+}
+.income-right{
+	color: #FAFBFC;
+}
+.income-name{
+	font-size: 28upx;
+}
+.income-num{
+	font-size: 52upx;
+	margin-top: 10upx;
+}
+.income-content{
+	width:590upx;
+	height: 160upx;
+	background-color: #FFFFFF;
+	box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
+	border-radius:20upx;
+	padding: 0upx 40upx;
+	position: absolute;
+	left: 50%;
+	margin-left: -335upx;
+	bottom: -80upx;
+	display: flex;
+	align-items: center;
+}
+.income-content-left{
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+.income-content-right{
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 120upx;
+	height: 48upx;
+	color: #545DFF;
+	text-align: center;
+	line-height: 48upx;
+	border-radius: 8upx;
+	border: 1px solid #545DFF;
+	font-size: 24upx;
+}
+.income-content-img{
+	width: 92upx;
+	height: 92upx;
+	margin-right: 16upx;
+}
+.income-title{
+	color: #595959;
+	font-size: 24upx;
+}
+.income-money{
+	color: #545DFF;
+	font-size: 40upx;
+	margin-top: 10upx;
+}
+.income-list{
+	min-height:55upx;
+}
+.income-list{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30upx 40upx;
+	border-bottom: 1px solid #EBEBEB;
+}
+.income-list-name{
+	color: #595959;
+	font-size: 28upx;
+}
+.income-list-more{
+	display: block;
+	width: 8upx;
+	height:33upx;
+}

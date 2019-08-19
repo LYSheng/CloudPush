@@ -49,12 +49,8 @@
 			}
 		},
 		// components: {uniPopup},
-		onShow(){
-			console.log(111)
-		},
 		onLoad() {
 			let userInfo=uni.getStorageSync('userInfo');
-			console,log(userInfo)
 			this.tou=userInfo.avatarUrl;
 			this.userName=userInfo.nickName;
 			this.phone=uni.getStorageSync('phone')

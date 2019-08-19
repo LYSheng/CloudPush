@@ -3,7 +3,7 @@
 		<view class="business-search">
 			<input type="text" placeholder-style="font-size:14px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
 			<view class="business-search-icon">
-				1
+				<image src="/static/image/search.png" class="bus-search-icon" mode=""></image>
 			</view>
 		</view>
 		<view class="business-tab">
@@ -86,14 +86,14 @@
 		},
 		// components: {uniLoadMore},
 		onShow(){
+
+		},
+		onLoad(){
 			this.setColor()
 			this.pageNo=1;
 			this.list=[];
 			this.getList();
 		},
-		// onLoad(){
-		// 	this.getList()
-		// },
 		methods: {
 			// 设置导航背景色
 			             setColor(){

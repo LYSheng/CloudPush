@@ -1,31 +1,54 @@
 <template>
 	<view class="business-detail">
-		<view  class="business-lists" v-for="(item,index) in list">
-			<view class="business-left" >
-				<image v-if="item.type==2" class="business-icon" src="/static/image/b1.png" mode=""></image>
-				<image v-if="item.type==3" class="business-icon" src="/static/image/bb1.png" mode=""></image>
-				<image v-if="item.type==1" class="business-icon" src="/static/image/bb2.png" mode=""></image>
+		<view class="business-lists">
+			<view class="business-left">
+				<image class="business-icon" src="/static/image/b1.png" mode=""></image>
 			</view>
 			<view  class="business-con">
 				<view class="business-title">
-					{{item.name}}
+					杨老板的小店
 				</view>
 				<view class="business-text">
-					{{item.addressProvince}}  {{item.addressCity}}  {{item.addressCounty}}
+					上海市 杨浦区 平凉路
 				</view>
 				<view class="business-text">
-					商家负责人：{{item.leadingName}}
+					商家负责人：杨某
 				</view>
 			</view>
 			<view class="business-right">
 				<view class="business-biao">
-					{{item.merchantCategorySecond}}
+					数码产品
 				</view>
-				<view v-if="item.type==1" @click.stop.prevent="phoneCall(item.phone)" class="business-phone">
-					分配
+				<button v-if='isMember'>联系商家</button>
+				<button v-else >分配</button>
+			</view>
+		</view>
+		<view class="business-infolist">
+			<view class="member" v-if='isMember'>
+				<view class="list">
+					<text>所属公司</text>
+					<text>上海翼倍信息科技有限公司</text>
 				</view>
-				<view v-else class="business-text-fen">
-					业务员：杨某
+				<view class="list">
+					<text>累计收益（元）</text>
+					<text>12345</text>
+				</view>
+				<view class="list">
+					<text>进货</text>
+					<image src="../../static/image/detailsIcon.png" mode="aspectFill"></image>
+				</view>
+				<view class="list">
+					<text>入驻</text>
+					<image src="../../static/image/detailsIcon.png" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view class="common" v-else>
+				<view class="list">
+					<text>商家保护结束时间</text>
+					<text>2019-08-12</text>
+				</view>
+				<view class="text">
+					<text>注：该商家还未成为会员商家，请在保护期内尽快联系商家购买会员，保护期结束后可与其他业务员关联绑定关系</text>
 				</view>
 			</view>
 		</view>
@@ -49,6 +72,7 @@
 				    scrollTop: 0
 				},
 				count:0,
+				isMember:true,
 			}
 		},
 		onLoad() {
@@ -66,30 +90,12 @@
 				}
 				http.Request(api.list,'POST',param,function(res){
 					console.log(res)
-					self.count=res.pages;
-					  self.list.push(res.list[0]);
-					if(res.list.length>0){
-						for (var i=0;i<res.list.length;i++){
-						    // self.list.push(res.list[0]);
-						}
-					}else{
-						// 停止分页
-						self.overFlag=true
-					}
-					
-					// 数据判断
-					if(res.pages>0){
-						self.countFlag=false
-					}else{
-						self.countFlag=true
-					}
-					console.log(self.list)
 				})
 			},
 		}
 	}
 </script>
 
-<style scoped>
-	@import url("./index.css");
+<style lang="scss" scoped>
+	@import "./index.scss";
 </style>

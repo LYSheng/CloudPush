@@ -1,0 +1,42 @@
+.mycode{
+	width: 460upx;
+	height: 460upx;
+	margin: 0 auto;
+	margin-top: 138upx;
+	background-color: #EFEFEF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.code-img{
+	width: 400upx;
+	height: 400upx;
+}
+.code-text{
+	text-align: center;
+	margin: 0 auto;
+	color: #595959;
+	font-size: 24upx;
+	margin-top:38upx ;
+}
+.mycodeNone{
+	
+}
+.mycodeNoneImg{
+	display: block;
+	width: 500upx;
+	height: 400upx;
+	margin:  0 auto;
+	margin-top: 176upx;
+}
+.mycodeNoneText{
+	color: #595959;
+	
+	text-align: center;
+	margin: 0 auto;
+	font-size: 24upx;
+	margin-top: 70upx;
+}
+.joinOut{
+	margin-top: 300upx;
+}

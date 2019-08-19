@@ -133,8 +133,8 @@
 							    delta: 1
 							});
 						}else{
-							uni.switchTab({
-								url: '/pages/home/home'
+							uni.reLaunch({
+							    url: '../businessHome/businessHome?type=2'
 							});
 						}
 					}

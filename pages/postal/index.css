@@ -1,0 +1,101 @@
+.postal-top{
+	padding: 26upx 82upx;
+	background-color: rgba(174, 179, 192, 0.3);
+	color: #595959;
+}
+.postal-none{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.postal-add-btn{
+	font-size: 28upx;
+}
+.postal-add-icon{
+	width: 36upx;
+	height: 36upx;
+}
+.postal-content{
+	padding: 20upx 82upx;
+	border-bottom:1px solid #EBEBEB;
+}
+.postal-title{
+	color: #595959;
+	font-size: 24upx;
+	margin-bottom: 20upx;
+}
+.postal-input-box{
+	display: flex;
+}
+.postal-yuan{
+	color: #545DFF;
+	font-size: 40upx;
+}
+.postal-input{
+	color: #545DFF;
+	font-size: 32upx;
+}
+.postal-wen{
+	padding: 10upx 82upx;
+	
+}
+.postal-text-miao{
+	color: #595959;
+	font-size: 24upx;
+}
+.postal-ti{
+	padding-left: 16upx;
+	color: #545DFF;
+	font-size: 24upx;
+}
+.postal-ti-box{
+	margin-top: 48upx;
+	
+}
+.postal-btn{
+	width: 649upx;
+	height: 84upx;
+	border-radius: 20upx;
+	text-align: center;
+	line-height: 84upx;
+	color: #FFFFFF;
+	font-size: 32upx;
+	margin: 0 auto;
+	background-color:#545DFF ;
+	box-shadow:0px 10px 30px 0px rgba(84,93,255,0.3);
+}
+.postal-ci{
+	color: #595959;
+	font-size: 24upx;
+	text-align: center;
+	margin-top: 20upx;
+}
+.postal-bank{
+	display: flex;
+	/* justify-content: space-between; */
+	
+}
+.postal-header{
+	color: #595959;
+	font-size: 24upx;
+	margin-right: 48upx;
+}
+.postal-bank-xx{
+	display: flex;
+	
+}
+.postal-bank-icon{
+	width: 30upx;
+	height: 30upx;
+}
+.postal-bank-name{
+	color: #595959;
+	font-weight: bold;
+	font-size: 24upx;
+}
+.postal-time{
+	color: #595959;
+	font-size: 24upx;
+	margin-left: 30upx;
+	margin-top: 8upx;
+}

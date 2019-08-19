@@ -6,6 +6,11 @@
 				"navigationBarTitleText": "传火云推"
 			}
 		},
+		{ // 企业动态 Footer
+		    "path" : "pages/businessHome/businessHome",
+		    "style" : {}
+		},
+
 		{
 		    "path" : "pages/businessDetails/businessDetails",
 		    "style" : {
@@ -83,6 +88,56 @@
             "style" : {
 				"navigationBarTitleText": "我的收入"
 			}
+        }
+        ,{
+            "path" : "pages/residenceAward/residenceAward",
+            "style" : {
+				"navigationBarTitleText": "入驻奖励"
+			}
+        }
+        ,{
+            "path" : "pages/discountRecord/discountRecord",
+            "style" : {
+				"navigationBarTitleText": "提现记录"
+			}
+        }
+        ,{
+            "path" : "pages/postal/postal",
+            "style" : {
+				"navigationBarTitleText": "提现"
+			}
+        }
+        ,{
+            "path" : "pages/postalAdd/postalAdd",
+            "style" : {
+				
+			}
+        }
+        ,{
+            "path" : "pages/myCode/myCode",
+            "style" : {}
+        },{
+            "path" : "pages/setUp/setUp",
+            "style" : {}
+        },{
+            "path" : "pages/mineContent/mineContent",
+            "style" : {}
+        },
+		{
+		    "path" : "pages/businessStaffDetails/businessStaffDetails",
+		    "style" : {
+				"navigationBarTitleText":"员工详情"
+			}
+		},
+		{
+		    "path" : "pages/businessStaff/businessStaff",
+		    "style" : {
+				"navigationBarTitleText": "员工管理"
+			}
+		}
+        ,{
+            "path" : "pages/businessMine/businessMine",
+            "style" : {}
         }
     ],
 	"globalStyle": {

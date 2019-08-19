@@ -1,0 +1,73 @@
+.business-detail{
+	.business-lists{
+		box-shadow: none;
+		.business-right{
+			& > view{
+				margin-bottom: 8upx;
+			}
+			button{
+				width: 120upx;
+				height: 48upx;
+				line-height: 48upx !important;
+				background:rgba(84,93,255,1);
+				border-radius:8px;
+				color: #fff;
+				text-align: center;
+				font-size: 24upx;
+			}
+		}
+	}
+	.business-infolist{
+		.list{
+			padding: 0 40upx;
+			height: 120upx;
+			border-bottom: 2upx solid #EBEBEB;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			text{
+				display: inline-block;
+				color: #595959;
+				font-size: 28upx;
+				font-weight: 500;
+				width: 30%;
+			}
+			text:last-child{
+				width: 70%;
+				text-align: right;
+				font-size: 32upx;
+				font-weight: 400;
+			}
+			image{
+				float: right;
+				width: 8upx;
+				height: 32upx;
+			}
+		}
+		.member{
+			.list:first-child{border-bottom: none;}
+			.list:nth-child(2) text:last-child{ font-weight: 500; color: #545DFF; }
+		}
+		.common{
+			.list{
+				text{
+					width: 50%;
+				}
+				text:last-child{
+					width: 50%;
+					color: #545DFF;
+				}
+			}
+			.text{
+				width: 580upx;
+				margin: 0 auto;
+				text-align: center;
+				text{
+					color: #AEB3C0;
+					font-size: 20upx;
+				}
+			}
+		}
+	}
+}
+	
