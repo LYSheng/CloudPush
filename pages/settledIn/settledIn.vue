@@ -5,7 +5,7 @@
 				<image class="incomeListTopImg" src="/static/image/b1.png" mode=""></image>
 				<view class="income-detail-box">
 					<view class="income-detail-title">
-						入驻金额（元）
+						入驻奖励金额（元）
 					</view>
 					<view class="income-detail-money">
 						397,999,00
@@ -19,9 +19,6 @@
 		<!-- list -->
 		<view class="income-uls">
 			<view class="income-li">
-				<view class="income-jiaobiao">
-					个人
-				</view>
 				<view class="income-li-left">
 					<view class="income-name">
 						杨老板的小店
@@ -39,9 +36,6 @@
 				</view>
 			</view>
 			<view class="income-li">
-				<view class="income-jiaobiaoge ">
-					公司
-				</view>
 				<view class="income-li-left">
 					<view class="income-name">
 						杨老板的小店

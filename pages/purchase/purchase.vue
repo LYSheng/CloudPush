@@ -19,9 +19,9 @@
 		<!-- list -->
 		<view class="income-uls">
 			<view class="income-li">
-				<view class="income-jiaobiao">
+<!-- 				<view class="income-jiaobiao">
 					个人
-				</view>
+				</view> -->
 				<view class="income-li-left">
 					<view class="income-name">
 						杨老板的小店
@@ -39,9 +39,9 @@
 				</view>
 			</view>
 			<view class="income-li">
-				<view class="income-jiaobiaoge ">
+<!-- 				<view class="income-jiaobiaoge ">
 					公司
-				</view>
+				</view> -->
 				<view class="income-li-left">
 					<view class="income-name">
 						杨老板的小店
