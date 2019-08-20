@@ -81,7 +81,7 @@
 			shuMoney(){
 				if(this.expressiveMoney*1>this.Withdrawable*1){
 					console.log(this.expressiveMoney)
-					this.expressiveMoney=this.Withdrawable
+					// this.expressiveMoney=this.Withdrawable
 					// uni.showToast({
 					//     icon:"none",
 					//     title:"纵向滚动 scrollTop 值已被修改为 0"
@@ -93,7 +93,7 @@
 				if(this.expressiveMoney*1>this.Withdrawable*1){
 					uni.showToast({
 					    icon:"none",
-					    title:"提现金额不得超过可提现金额"
+					    title:"提现金额超限"
 					})
 				}
 				console.log(this.expressiveMoney)

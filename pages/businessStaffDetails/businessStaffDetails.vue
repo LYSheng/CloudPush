@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<view class="right">
-				<image src="../../static/image/delete.png" mode="aspectFill"></image>
+				<image src="../../static/image/delete.png" @click="deletaFun" mode="aspectFill"></image>
 			</view>
 		</view>
 		<view class="block">
@@ -26,23 +26,49 @@
 			<text>交易分佣</text>
 			<image src="../../static/image/detailsIcon.png"></image>
 		</view>
+		<businessManag :HeadShow='HeadShow'></businessManag>
 	</view>
 </template>
 
 <script>
+	import businessManag from '../businessManag/businessManag'
 	export default {
+		components:{
+			businessManag,
+		},
 		data() {
 			return {
-				
+				HeadShow:false,
 			}
 		},
 		methods: {
-			
+			deletaFun(){
+				uni.showModal({
+				    content: '确认移除该员工？',
+				    success: function (res) {
+				        if (res.confirm) {
+				            console.log('用户点击确定');
+				        } else if (res.cancel) {
+				            console.log('用户点击取消');
+				        }
+				    }
+				});
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
+	.business-box{
+		width: 670upx;
+		margin: 0 auto;
+		.business-tab{
+			padding: 20upx 0;
+			.business-list{
+				width: 208upx;
+			}
+		}
+	}
 	.StaffDetails{
 		.header{
 			box-sizing: border-box;

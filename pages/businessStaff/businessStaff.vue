@@ -5,12 +5,12 @@
 				<image src="../../static/image/search.png" mode="aspectFill"></image>
 				<input placeholder-style='color:#fff' type="text" placeholder="请输入员工姓名/手机号">
 			</view>
-			<view class="scan">
-				<image src="../../static/image/search.png" mode="aspectFill"></image>
+			<view class="scan" @click="Camera">
+				<image src="../../static/image/icon2.png" mode="aspectFill"></image>
 			</view>
 		</view>
 		<view class="StaffList">
-			<view class="list">
+			<view class="list" @click="toDetails">
 				<view class="left">
 					<view>
 						<image src="../../static/image/bb1.png" mode="aspectFill"></image>
@@ -41,6 +41,25 @@
 			return {
 				
 			};
+		},
+		methods:{
+			toDetails(){
+				uni.navigateTo({
+					url:'../businessStaffDetails/businessStaffDetails'
+				})
+			},
+			Camera(){
+				uni.scanCode({
+				    onlyFromCamera: true,
+				    success: function (res) {
+						if(res.result){
+							uni.navigateTo({
+								url:'../addStaff/addStaff?uid=' + res.result
+							})
+						}
+				    }
+				});
+			}
 		}
 	}
 </script>

@@ -199,10 +199,17 @@
 			detail(res,code){
 				console.log(res)
 				if(res==1){
-					
 					uni.setStorageSync('codeUrl', code);
 					uni.navigateTo({
 						url: '../settledStepTwo/settledStepTwo?query=2'
+					});
+				}else if(res==2){//普通商家 
+					uni.navigateTo({
+						url: '../businessDetails/businessDetails?type=2'
+					});
+				}else if(res==3){//会员商家
+					uni.navigateTo({
+						url: '../businessDetails/businessDetails?type=3'
 					});
 				}
 			}

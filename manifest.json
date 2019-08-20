@@ -60,7 +60,12 @@
             "urlCheck" : true,
             "es6" : false
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "方便用户填写信息"
+            }
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true

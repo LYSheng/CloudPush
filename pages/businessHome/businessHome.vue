@@ -52,6 +52,8 @@
 		onLoad(options) {
 			if(options.type==2){
 				this.permission=2
+			} else{
+				this.permission=1
 			}
 			let { permission } = this;
 			switch(permission)

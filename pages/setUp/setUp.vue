@@ -1,7 +1,7 @@
 <template>
 	<view class="setUpBox">
 		<view class="setUpUl">
-			<view class="setUpList">
+			<view class="setUpList" @click="Change">
 				<view class="setUpName">
 					更换负责人
 				</view>
@@ -28,6 +28,11 @@
 			}
 		},
 		methods: {
+			Change(){
+				uni.navigateTo({
+					url:'../changePrincipal/changePrincipal'
+				})
+			},
 			out(){
 				uni.showModal({
 					title: '温馨提示',

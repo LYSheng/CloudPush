@@ -1,9 +1,9 @@
 <template>
 	<view class="mine-bgbox">
 		<view class="mine-box">
-			<view class="mine-top">
+			<view class="mine-top" @click="mineContent">
 				<view class="mine-li-left">
-					<image :src="tou" class="mine-li-img" mode=""></image>
+					<image :src="tou" class="mine-li-img" mode="aspectFit"></image>
 					<view class="mine-con">
 						<view class="mine-name">
 							{{userName}}
@@ -13,15 +13,9 @@
 						</view>
 					</view>
 				</view>
-				<image @click="mineContent" src="/static/image/xx.png" class="mine-right" mode=""></image>
+				<image src="/static/image/xx.png" class="mine-right" mode="aspectFit"></image>
 			</view>
 			<!--  -->
-			<view class="mine-list" @click="mycode">
-				<view class="mine-liname">
-					我的二维码
-				</view>
-				<image class="mine-more" src="/static/image/jt.png" mode=""></image>
-			</view>
 			<view class="mine-list">
 				<view class="mine-liname">
 					流程手册
@@ -49,8 +43,8 @@
 			}
 		},
 		// components: {uniPopup},
-		onLoad() {
-			let userInfo=uni.getStorageSync('userInfo');
+		created() {
+			let userInfo = uni.getStorageSync('userInfo');
 			this.tou=userInfo.avatarUrl;
 			this.userName=userInfo.nickName;
 			this.phone=uni.getStorageSync('phone')
@@ -59,21 +53,16 @@
 			openPopup(){
 				this.$refs.popup.open()
 			},
-			mycode(){
-				uni.navigateTo({
-					url: '../myCode/myCode'
-				});
-			},
 			// 设置
 			setUp(){
 				uni.navigateTo({
 					url: '../setUp/setUp'
 				});
 			},
-			// 编辑嘻嘻
+			// 编辑信息
 			mineContent(){
 				uni.navigateTo({
-					url: '../mineContent/mineContent'
+					url: '../enterpriseInfo/enterpriseInfo'
 				});
 			},
 			out(){
@@ -82,13 +71,12 @@
 					content: '退出登录',
 					success: function (res) {
 						if (res.confirm) {
-							console.log('用户点击确定');
 							uni.clearStorageSync();
 							uni.navigateTo({
 								url: '../login/login'
 							});
 						} else if (res.cancel) {
-							console.log('用户点击取消');
+							
 						}
 					}
 				});

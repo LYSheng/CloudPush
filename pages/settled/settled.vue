@@ -66,6 +66,9 @@
 				<view class="register-right">
 					<input v-model="addressDetail" placeholder-style="color:#AEB3C0" placeholder="请输入详细地址" class="register-input" type="text" value="" />
 				</view>
+				<view class="register-name" @click="getLocation">
+					获取位置
+				</view>
 			</view>
 			<view class="register-li">
 				<view class="register-name">
@@ -213,6 +216,29 @@
 			
 		},
 		methods: {
+			getAuthorizeInfo(a="scope.userLocation"){  //1. uniapp弹窗弹出获取授权（地理，个人微信信息等授权信息）弹窗
+					var _this=this;
+					uni.authorize({
+						scope: a,
+						success() { //1.1 允许授权
+							_this.getLocation();
+						},
+						fail(){    //1.2 拒绝授权
+							console.log("你拒绝了授权，无法获得周边信息")
+						}
+					})
+				},
+			// 获取位置
+			getLocation(){
+				uni.getLocation({
+				    type: 'wgs84',
+				    success: function (res) {
+						console.log(res)
+				        console.log('当前位置的经度：' + res.longitude);
+				        console.log('当前位置的纬度：' + res.latitude);
+				    }
+				});
+			},
 			// 预览
 			previewImage(url){
 				let arrayImg=[]

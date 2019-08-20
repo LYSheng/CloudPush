@@ -1,3 +1,8 @@
+.iconStyle{
+	width: 38rpx;
+	height: 38rpx;
+}
+
 .business-text-fen{
 	color: #545DFF;
 	font-size: 24upx;
@@ -36,7 +41,7 @@
 }
 
 .business-sou{
-	padding: 6upx 40upx;
+	padding: 6upx 0 6upx 40upx;
 	background-color: #3E47E1;
 	display: flex;
 }
@@ -48,7 +53,7 @@
 .business-shuai{
 	flex-grow: 0;
 	flex-shrink: 0;
-	width: 60upx;
+	width: 80upx;
 	height: 80upx;
 	display: flex;
 	align-items: center;
@@ -96,7 +101,7 @@
 	background-color: #3E47E1;
 	color: #FFFFFF;
 	font-size: 28upx;
-	border-bottom: 1px solid #FAFBFC;
+	border-bottom: 1px solid rgba(255,255,255,.3);
 }
 .shai-left{
 	flex-grow: 1;

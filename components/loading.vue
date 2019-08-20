@@ -25,7 +25,7 @@
 		},
 		computed:{
             is_loading(){
-				console.log(store.state.LOADING)
+				console.log(store.state.loading)
                 return store.state.loading
             }
         }

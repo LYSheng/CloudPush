@@ -33,11 +33,11 @@
 					<text>累计收益（元）</text>
 					<text>12345</text>
 				</view>
-				<view class="list">
+				<view @click="purchase" class="list">
 					<text>进货</text>
 					<image src="../../static/image/detailsIcon.png" mode="aspectFill"></image>
 				</view>
-				<view class="list">
+				<view @click="settledIn" class="list">
 					<text>入驻</text>
 					<image src="../../static/image/detailsIcon.png" mode="aspectFill"></image>
 				</view>
@@ -61,37 +61,28 @@
 	export default {
 		data() {
 			return {
-				countFlag:false,
-				btnnum:0,
-				pageNo:1,
-				pageSize:10,
-				list:[],
-				overFlag:false,
-				scrollTop: 0,
-				old: {
-				    scrollTop: 0
-				},
-				count:0,
-				isMember:true,
+				isMember:false,
 			}
 		},
-		onLoad() {
-			this.getList()
+		onLoad(options) {
+			let type = options.type;
+			if(type){
+				this.isMember = type == 3?true:false;
+			}
 		},
 		methods: {
-			// getList
-			getList(){
-				let self=this
-				let param={
-					type:self.btnnum,
-					pageNo:self.pageNo,
-					pageSize:self.pageSize,
-					
-				}
-				http.Request(api.list,'POST',param,function(res){
-					console.log(res)
-				})
+			// 进货
+			purchase(){
+				uni.navigateTo({
+					url: '../purchase/purchase'
+				});
 			},
+			// 入驻
+			settledIn(){
+				uni.navigateTo({
+					url: '../settledIn/settledIn'
+				});
+			}
 		}
 	}
 </script>

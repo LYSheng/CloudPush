@@ -6,7 +6,7 @@
 					公司名称
 				</view>
 				<view class="register-right">
-					<input placeholder-style="color:#AEB3C0" placeholder="请输入姓名" class="register-input" type="text" value="" v-model="username" />
+					<input disabled placeholder-style="color:#AEB3C0" placeholder="请输入公司名称" class="register-input" type="text" value="" v-model="username" />
 				</view>
 			</view>
 			<view class="register-li">
@@ -33,35 +33,23 @@
 					负责人姓名
 				</view>
 				<view class="register-right">
-					<input v-model="fuUserName" placeholder-style="color:#AEB3C0" placeholder="请输入负责人名称" class="register-input" type="text" value="" />
+					<input disabled maxlength="18" v-model="idCard" placeholder-style="color:#AEB3C0" placeholder="请输入负责人姓名" class="register-input" type="text" value="" />
 				</view>
 			</view>
 			<view class="register-li">
 				<view class="register-name">
-					手机号码
+					手机号
 				</view>
 				<view class="register-right">
-					<input maxlength="11" v-model="phone" placeholder-style="color:#AEB3C0" placeholder="请输入手机号码" class="register-input" type="text" value="" />
-					<button @click="getCode" :disabled="disabled" class="phone-me-get">
-					        {{countdown}} <text v-show="timestatus">秒重获</text>
-					</button>
+					<input disabled maxlength="11"  placeholder-style="color:#AEB3C0" placeholder="请输入手机号" class="register-input" type="text" value="" v-model="phone" />
 				</view>
 			</view>
 			<view class="register-li">
 				<view class="register-name">
-					验证码
-				</view>
-				<view class="register-right">
-					<input v-model="code" placeholder-style="color:#AEB3C0" placeholder="请输入验证码" class="register-input" type="text" value="" />
-				</view>
-			</view>
-			
-			<view class="register-li">
-				<view class="register-name register-new-name">
 					统一社会信用代码
 				</view>
 				<view class="register-right">
-					<input v-model="daiCode" placeholder-style="color:#AEB3C0" class="register-input" type="text" value="" />
+					<input disabled maxlength="11"  placeholder-style="color:#AEB3C0" placeholder="请输入统一社会信用代码" class="register-input" type="text" value="" v-model="phone" />
 				</view>
 			</view>
 		</view>
@@ -72,69 +60,21 @@
 		 	<view class="upload-box">
 				<view class="upload-list">
 					<view class="uphe">
-						<block v-if="imageSrcOne">
+						<block>
 							<view class="imgaboust">
-								<image @click="imageSrcOneNone" class="imgOut" src="/static/image/up2.png" mode=""></image>
-								<image :src="imageSrcOne" class="upImg" mode="widthFix"></image>
+								<!-- <image @click="imageSrcOneNone" class="imgOut" src="/static/image/up2.png" mode=""></image> -->
+								<image @click="previewImage(imageSrcOne)" :src="imageSrcOneZs" class="upImg" mode="widthFix"></image>
 							</view>
 						</block>
-						<block v-else>
-							<image @click="chooseImageOne" class="upImg" src="/static/image/up1.png" mode=""></image>
-						</block>
-						<view class="register-uptext">
-							营业执照
-						</view>
 					</view>
 				</view>
 			</view>
 		</view>
-		<!-- 加入云推 -->
+		<!-- 保存修改 -->
 		<view class="join" @click='join'>
-			加入云推
+			保存修改
 		</view>
-		<!-- phone   盒子 -->
-		<view v-if="phoneMask" class="phone-mask">
-			<view class="phone-me ">
-				<view class="phone-me-top phone-me-list m20">
-					<view class="phone-me-name phone-font">
-						国家/地区
-					</view>
-					<view class="phone-me-right">
-						<view class="phone-me-con phone-font">
-							中国（+86）
-						</view>
-					</view>
-				</view>
-				<view class="phone-me-list">
-					<view class="phone-me-name phone-font">
-						手机号码
-					</view>
-					<view class="phone-me-right">
-						<input maxlength="11" v-model="yanPhone" placeholder="请输入手机号" placeholder-class="phone-place " type="text" class="phone-me-input phone-font" value="" />
-						<button @click="getCode" :disabled="disabled" class="phone-me-get">
-			                {{countdown}} <text v-show="timestatus">秒重获</text>
-			            </button>						
-					</view>
-				</view>
-				<view class="phone-me-list">
-					<view class="phone-me-name phone-font">
-						验证码
-					</view>
-					<view class="phone-me-right">
-						<input v-model="code" placeholder="请输入验证码" placeholder-class="phone-place " type="text" class="phone-me-input phone-font" value="" />
-					</view>
-				</view>
-				
-				<view class="phone-me-bottom">
-					<view @click="phoneMaskQu" class="phone-me-btn phone-me-btn-none">
-						取消
-					</view>
-					<view @click="phoneSubmit" class="phone-me-btn">
-						提交
-					</view>
-				</view>
-			</view>
-		</view>
+		
 	</view>
 </template>
 
@@ -146,16 +86,16 @@
 		data() {
 			return {
 				 pickerValueDefault: [0, 0, 0],//省市区默认
-				 username:'',//公司名称
-				 fuUserName:'',//负责人名称
+				 username:'',//姓名
 				 phone:'',//手机号
-				 code:'',//验证码
-				 daiCode:'',//验证码
 				 yanPhone:'',//验证手机
 				 adders:'',//详细地址
 				 idCard:'',//身份证
 				 imageSrcOne:'',//正面
-				 address:'请选择地址',//办公地址
+				 imageSrcOneZs:'',//正面zs
+				 imageSrcTwo:'',//反面
+				 imageSrcTwoZs:'',//反面zs
+				 address:'请选择地址',//常住地
 				 countdown:'获取验证码',
 				 timestatus:false,
 				 disabled:false,
@@ -175,6 +115,23 @@
 			this.session=uni.getStorageSync('session');
 		},
 		methods: {
+			// 预览
+			previewImage(url){
+				let arrayImg=[]
+				arrayImg.push(url)
+				uni.previewImage({
+					urls: arrayImg,
+					longPressActions: {
+						itemList: ['发送给朋友', '保存图片', '收藏'],
+						success: function(data) {
+							console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
+						},
+						fail: function(err) {
+							console.log(err.errMsg);
+						}
+					}
+				});
+			},
 			// 获取手机号
 			getPhoneNumber: function(e) {  
                 console.log(e);  
@@ -203,11 +160,12 @@
 					// self.loading=false
 					console.log(res)
 					self.phone=res.mobile
-					uni.setStorageSync('phone', self.phone);
+					uni.setStorageSync('phone',res.mobile);
 				})
 			},
 			// 上传正面   
 			chooseImageOne: function() {
+				let self=this
 				uni.chooseImage({
 					count: 1,
 					sizeType: ['compressed'],
@@ -226,6 +184,7 @@
 							name: 'file',
 							header:{"Content-Type": "multipart/form-data"},
 							success: (res) => {
+								console.log(res)
 								console.log( JSON.parse(res.data))
 								let datasOne=JSON.parse(res.data)
 								uni.showToast({
@@ -233,7 +192,48 @@
 									icon: 'success',
 									duration: 1000
 								})
-								this.imageSrcOne = datasOne.data
+								self.imageSrcOne = datasOne.data
+								self.imageSrcOneZs=imageSrc
+							},
+							fail: (err) => {
+								console.log('uploadImage fail', err);
+								uni.showModal({
+									content: err.errMsg,
+									showCancel: false
+								});
+							}
+						});
+					},
+					fail: (err) => {
+						console.log('chooseImage fail', err)
+					}
+				})
+			},
+			// 上传反面图片
+			chooseImageTwo: function() {
+				let self=this
+				uni.chooseImage({
+					count: 1,
+					sizeType: ['compressed'],
+					sourceType: ['camera','album'], //album
+					success: (res) => {
+						console.log('chooseImage success, temp path is', res.tempFilePaths[0])
+						var imageSrc = res.tempFilePaths[0]
+						uni.uploadFile({
+							url: 'https://api30.chuanhuoapp.com/business-user/v1/yt/uploadImage',
+							filePath: imageSrc,
+							fileType: 'image',
+							name: 'file',
+							header:{"Content-Type": "multipart/form-data"},
+							success: (res) => {
+								let datasTwo=JSON.parse(res.data)
+								uni.showToast({
+									title: '上传成功',
+									icon: 'success',
+									duration: 1000
+								})
+								self.imageSrcTwo = datasTwo.data
+								self.imageSrcTwoZs=imageSrc
 							},
 							fail: (err) => {
 								console.log('uploadImage fail', err);
@@ -252,6 +252,10 @@
 			// 删除正面
 			imageSrcOneNone(){
 				this.imageSrcOne=''
+			},
+			// 删除背面
+			imageSrcTwoNone(){
+				this.imageSrcTwo=''
 			},
 			// 打开省市区选择器
 			showCityPicker() {
@@ -282,14 +286,18 @@
 			},
 			// 点击加入
 			join(){
-				uni.reLaunch({
-				    url: '../businessHome/businessHome?type=2'
-				});
 				let self=this
 				if(self.imageSrcOne==''){
 					uni.showToast({
 						icon:'none',
-						title: '请上传营业执照'
+						title: '请上传身份证正面照片'
+					});
+					return
+				}
+				if(self.imageSrcTwo==''){
+					uni.showToast({
+						icon:'none',
+						title: '请上传身份证反面照片'
 					});
 					return
 				}
@@ -304,13 +312,6 @@
 					uni.showToast({
 						icon:'none',
 						title: '请输入手机号'
-					});
-					return
-				};
-				if(self.code==''){
-					uni.showToast({
-						icon:'none',
-						title: '请输入手机验证码'
 					});
 					return
 				};
@@ -335,10 +336,10 @@
 					});
 					return	
 				};
-				if(self.daiCode==''){
+				if(self.idCard==''){
 					uni.showToast({
 						icon:'none',
-						title: '请输入信用代码'
+						title: '请输入身份证信息'
 					});
 					return
 				};
@@ -397,14 +398,16 @@
 					uni.setStorageSync('token', res.token);
 					uni.setStorageSync('uid', res.userId);
 					uni.setStorageSync('secret', res.secret);
-					
+					uni.switchTab({
+						url: '/pages/home/home'
+					});
 				})
 				
 			},
 			// 获取验证码
 			getCode(){
 				let self=this;
-				if(self.phone==''){
+				if(self.yanPhone==''){
 					uni.showToast({
 						icon:'none',
 						title: '请填写手机号码'
@@ -415,20 +418,43 @@
 					
 				}
 			},
+			// 验证验证码
+			phoneSubmit(){
+				let self=this;
+				if(self.code==''){
+					uni.showToast({
+						icon:'none',
+						title: '请输入手机验证码'
+					});
+					return
+				}
+				let param={
+					code:self.code,
+					phone:self.yanPhone,
+				}
+				http.Request(api.checkSmsCode,'POST',param,function(res){
+					// self.loading=false
+					console.log(res)
+					uni.setStorageSync('phone', self.yanPhone);
+					self.phone= self.yanPhone;
+					self.phoneMask=false;
+					self.yanPhone='';
+				})
+			},
 			// diao用获取验证码接口
 			getSmsCode(){
 				let self = this;
 				let param={
-					mobile:self.phone,
+					mobile:self.yanPhone,
 				}
-				// http.Request(api.getSmsCode,'POST',param,function(res){
+				http.Request(api.getSmsCode,'POST',param,function(res){
 					// self.loading=false
-					// console.log(res)
+					console.log(res)
 					self.disabled = true;//禁用点击
 					self.countdown=60;
 					self.timestatus=true;
 					self.clear=setInterval(self.countDown,1000)
-				// })
+				})
 			},
 			// 倒计时
 			countDown(){
@@ -446,6 +472,10 @@
 	}
 </script>
 
-<style scoped>
-	@import url("./index.css");
+<style lang="scss" scoped>
+	.register-li:last-child{
+		.register-name{
+			width: 270rpx;
+		}
+	}
 </style>

@@ -10,6 +10,12 @@
 				}
 			}
 		},
+		{
+			"path" : "pages/addStaff/addStaff",
+			"style" : {
+				"navigationBarTitleText": "绑定员工"
+			}
+		}, 
 		{ // 企业动态 Footer
 		    "path" : "pages/businessHome/businessHome",
 		    "style" : {}
@@ -141,6 +147,24 @@
 		}
         ,{
             "path" : "pages/businessMine/businessMine",
+            "style" : {"navigationBarTitleText":"企业"}
+        }
+	,{
+            "path" : "pages/changePrincipal/changePrincipal",
+            "style" : {"navigationBarTitleText":"更换负责人"}
+        }
+        ,{
+            "path" : "pages/enterpriseInfo/enterpriseInfo",
+            "style" : {"navigationBarTitleText":"企业信息"}
+        }
+        ,{
+            "path" : "pages/purchase/purchase",
+            "style" : {
+				"navigationBarTitleText":"进货列表"
+			}
+        }
+        ,{
+            "path" : "pages/settledIn/settledIn",
             "style" : {}
         }
     ],
