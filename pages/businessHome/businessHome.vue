@@ -1,14 +1,14 @@
 <template>
-	<view>
+	<view class="business-home-box">
 		<view class="Main">
 			<businessManag v-if='ShowPage == "商家管理"'></businessManag>
-			<Income v-if='ShowPage == "企业收入"' ></Income>
+			<Income :types='2' v-if='ShowPage == "企业收入"' ></Income>
 			<BusinessStaff v-if='ShowPage == "员工管理"' ></BusinessStaff>
 			<BusinessMine v-if='ShowPage == "企业"' ></BusinessMine>
 			
 			<Home v-if='ShowPage == "商家入驻"' ></Home>
 			<Business v-if='ShowPage == "我的商家"' ></Business>
-			<Income v-if='ShowPage == "我的收入"' ></Income>
+			<Income :types='1' v-if='ShowPage == "我的收入"' ></Income>
 			<Mine v-if='ShowPage == "我的"' ></Mine>
 		</view>
 		<view class="Footer">
@@ -19,7 +19,7 @@
 				<text>{{item.text}}</text>
 			</view>
 		</view>
-		<Loading :isShow="LoadingShow"></Loading>
+
 	</view>
 </template>
 
@@ -93,10 +93,17 @@
 </script>
 
 <style lang="scss" scoped>
+	.business-home-box{
+		display: flex;
+		flex-direction:column;
+		height:100%;     
+	}
 	.Main{
 		width: 100%;
-		height: 100%;
-		padding-bottom: 100upx;
+		// height: 100%;
+		// padding-bottom: 100upx;
+		flex: 1;
+		overflow-y: auto;
 	}
 	.Footer{
 		position: fixed;

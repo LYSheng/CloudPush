@@ -35,17 +35,17 @@
 				<view class="postal-yuan">
 					￥
 				</view>
-				<input type="text" class="postal-input" value="" placeholder-style="font-size:16px;color:#AEB3C0" placeholder="请输入提现金额" />
+				<input @input="shuMoney" v-model="expressiveMoney" type="number" class="postal-input" value="" placeholder-style="font-size:14px;color:#AEB3C0" placeholder="请输入提现金额" />
 			</view>
 		</view>
 		<!-- tixian -->
 		<view class="postal-wen">
-			<text class="postal-text-miao">可提现金额500</text>
-			<text class="postal-ti">全部提现</text>
+			<text class="postal-text-miao">可提现金额{{Withdrawable}}</text>
+			<text @click="whole" class="postal-ti">全部提现</text>
 		</view>
 		<!-- 按钮 -->
 		<view class="postal-ti-box">
-			<view class="postal-btn">
+			<view class="postal-btn" @click="expressive">
 				提现
 			</view>
 			<view class="postal-ci">
@@ -59,7 +59,9 @@
 	export default {
 		data() {
 			return {
-				types:null
+				types:null,
+				Withdrawable:500,//可提现金额
+				expressiveMoney:'',//提现金额
 			}
 		},
 		onLoad(options) {
@@ -70,6 +72,31 @@
 				uni.navigateTo({
 					url: '../postalAdd/postalAdd'
 				});
+			},
+			// 全部提现
+			whole(){
+				this.expressiveMoney=this.Withdrawable
+			},
+			// 检测金额
+			shuMoney(){
+				if(this.expressiveMoney*1>this.Withdrawable*1){
+					console.log(this.expressiveMoney)
+					this.expressiveMoney=this.Withdrawable
+					// uni.showToast({
+					//     icon:"none",
+					//     title:"纵向滚动 scrollTop 值已被修改为 0"
+					// })
+				}
+			},
+			// 提现
+			expressive(){
+				if(this.expressiveMoney*1>this.Withdrawable*1){
+					uni.showToast({
+					    icon:"none",
+					    title:"提现金额不得超过可提现金额"
+					})
+				}
+				console.log(this.expressiveMoney)
 			}
 		}
 	}

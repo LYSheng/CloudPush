@@ -4,26 +4,32 @@
 }
 .income-top{
 	width: 100%;
-	height: 450upx;
+	height:368upx;
 	background-color: #545DFF;
 	display: flex;
 	position: relative;
-	align-items: center;
+	/* align-items: center; */
+	/* padding-top: 70upx; */
 }
 .income-img{
-	width: 198upx;
-	height: 198upx;
-	margin-right:42upx ;
+width: 210rpx;
+height: 180rpx;
+margin-right: 42rpx;
+margin-top: 70upx;
+
 }
 .income-right{
 	color: #FAFBFC;
 }
 .income-name{
 	font-size: 28upx;
+	color:rgba(255,255,255,0.6);
+	margin-top: 110upx;
 }
 .income-num{
 	font-size: 52upx;
 	margin-top: 10upx;
+	color:rgba(255,255,255,0.6);
 }
 .income-content{
 	width:590upx;
@@ -83,6 +89,7 @@
 .income-list-name{
 	color: #595959;
 	font-size: 28upx;
+	
 }
 .income-list-more{
 	display: block;

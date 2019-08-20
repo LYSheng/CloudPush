@@ -1,11 +1,15 @@
 import sha1 from 'sha1'
 import {Base64} from 'js-base64'
 import CryptoJS from 'crypto-js';
-// const  baseUrl='https://api30.chuanhuoapp.com';
-const  baseUrl='https://api.chuanhuoapp.com';
+import store from '../store/store'
+import * as types from '../store/types'
+const  baseUrl='https://api30.chuanhuoapp.com';
+// const  baseUrl='https://api.chuanhuoapp.com';
 
 export default {
 	LoginPost(url,data,success,fail){
+		// console.log(this.$store)
+		store.commit(types.LOADING);
 		uni.request({
 			url: baseUrl + url,
 			data: data,
@@ -20,6 +24,7 @@ export default {
 				console.log(res)
 				if(res.statusCode==200){
 					if(res.data.code==200){
+						store.commit(types.LOADING,false);
 						let result=res.data.data
 						return success(result)
 					}else if(res.data.code==10102){

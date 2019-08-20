@@ -163,7 +163,7 @@
 		components: {
 			mpvuePicker
 		},
-		onShow(){
+		created(){
 			this.setColor()
 			this.pageNo=1;
 			this.list=[];

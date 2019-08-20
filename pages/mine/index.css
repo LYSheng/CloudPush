@@ -27,7 +27,7 @@
 }
 .mine-name{
 	color: #595959;
-	font-size: 24upx;
+	font-size: 28upx;
 }
 .mine-phone{
 	color: #292F4C;
@@ -37,7 +37,7 @@
 .mine-right{
 	flex-grow: 0;
 	flex-shrink: 0;
-	width: 46upx;
+	width: 42upx;
 	height: 32upx;
 }
 .mine-list{
@@ -52,7 +52,7 @@
 }
 .mine-liname{
 	color: #595959;
-	font-size: 24upx;
+	font-size: 28upx;
 }
 .mine-more{
 	width: 12upx;

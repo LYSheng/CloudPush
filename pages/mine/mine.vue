@@ -49,15 +49,21 @@
 			}
 		},
 		// components: {uniPopup},
-		onShow(){
-			console.log(111)
-		},
-		onLoad() {
+		// computed:{
+		// 	console.log(11221)
+		// };
+		created(){
 			let userInfo=uni.getStorageSync('userInfo');
-			console,log(userInfo)
+			console.log(userInfo)
 			this.tou=userInfo.avatarUrl;
 			this.userName=userInfo.nickName;
 			this.phone=uni.getStorageSync('phone')
+			uni.setNavigationBarTitle({
+			　　title:'我的'
+			})
+		},
+		onLoad() {
+
 		},
 		methods: {
 			openPopup(){
@@ -97,7 +103,7 @@
 					}
 				});
 			}
-		}
+		},
 	}
 </script>
 

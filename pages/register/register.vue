@@ -454,8 +454,8 @@
 					uni.setStorageSync('token', res.token);
 					uni.setStorageSync('uid', res.userId);
 					uni.setStorageSync('secret', res.secret);
-					uni.switchTab({
-						url: '/pages/home/home'
+					uni.reLaunch({
+					    url: '../businessHome/businessHome?type=2'
 					});
 				})
 				

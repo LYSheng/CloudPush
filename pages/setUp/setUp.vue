@@ -14,7 +14,7 @@
 				<image class="setUpMore" src="/static/image/jt.png" mode=""></image>
 			</view>
 		</view>
-		<view @click="join" class="join setUpJoin">
+		<view @click="out" class="join setUpJoin">
 			退出登录
 		</view>
 	</view>
@@ -28,18 +28,21 @@
 			}
 		},
 		methods: {
-			join(){
+			out(){
 				uni.showModal({
-				    title: '提示',
-					confirmText:'是',
-				    content: '退出登录',
-				    success: function (res) {
-				        if (res.confirm) {
-				            console.log('用户点击确定');
-				        } else if (res.cancel) {
-				            console.log('用户点击取消');
-				        }
-				    }
+					title: '温馨提示',
+					content: '退出登录',
+					success: function (res) {
+						if (res.confirm) {
+							console.log('用户点击确定');
+							uni.clearStorageSync();
+							uni.navigateTo({
+								url: '../login/login'
+							});
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
 				});
 			}
 		}

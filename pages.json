@@ -3,7 +3,11 @@
 		{
 			"path" : "pages/login/login",
 			"style" : {
-				"navigationBarTitleText": "传火云推"
+				"navigationBarTitleText": "传火云推",
+				"app-plus":{
+					// 将回弹属性关掉
+					"bounce":"none"
+				}
 			}
 		},
 		{ // 企业动态 Footer
@@ -142,36 +146,9 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "传火云推",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": {
-	"color": "#9F9F9F",
-	"selectedColor": "#545DFF",
-	"borderStyle": "white",
-	"backgroundColor": "#ffffff",
-	"list": [{
-				"pagePath": "pages/home/home",
-				"iconPath": "static/image/t11.png",
-				"selectedIconPath": "static/image/t12.png",
-				"text": "商家入驻"
-			},{
-				"pagePath": "pages/business/business",
-				"iconPath": "static/image/t31.png",
-				"selectedIconPath": "static/image/t32.png",
-				"text": "我的商家"
-			},{
-				"pagePath": "pages/income/income",
-				"iconPath": "static/image/t31.png",
-				"selectedIconPath": "static/image/t32.png",
-				"text": "我的收入"
-			},{
-				"pagePath": "pages/mine/mine",
-				"iconPath": "static/image/t21.png",
-				"selectedIconPath": "static/image/t22.png",
-				"text": "我的"
-			}]
 	}
 	
 }

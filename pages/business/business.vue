@@ -85,14 +85,14 @@
 			}
 		},
 		// components: {uniLoadMore},
-		onShow(){
-
-		},
-		onLoad(){
+		created(){
 			this.setColor()
 			this.pageNo=1;
 			this.list=[];
 			this.getList();
+			uni.setNavigationBarTitle({
+			　　title:'我的商家'
+			})
 		},
 		methods: {
 			// 设置导航背景色

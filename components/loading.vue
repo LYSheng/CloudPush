@@ -1,5 +1,5 @@
 <template name='loading'>
-	<view class="loadingBox" v-if="isShow">
+	<view class="loadingBox" v-show="is_loading" >
 		<view>
 			<image src="../static/image/loading.gif" mode="aspectFit"></image>
 		</view>
@@ -7,6 +7,9 @@
 </template>
 
 <script>
+	import store from '../store/store'
+	import * as types from '../store/types'
+	
 	export default {
 		name: 'loading',
 		props:{
@@ -19,7 +22,13 @@
 			return {
 				
 			};
-		}
+		},
+		computed:{
+            is_loading(){
+				console.log(store.state.LOADING)
+                return store.state.loading
+            }
+        }
 	}
 </script>
 

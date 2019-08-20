@@ -1,5 +1,6 @@
 <template>
 	<view class="login-box">
+		<Loading ></Loading>
 		<view class="login-img-box">
 			<image class="login-img" src="/static/image/loginimg.png" mode=""></image>
 		</view>
@@ -61,12 +62,6 @@
 				let self=this;
 				self.loadingType=loadingType
 				console.log(self.loadingType)
-				if(self.loadingType==1){
-					self.loading=true;
-				}else{
-					self.loadingCheng=true;
-				}
-				
 				uni.getProvider({
 					service: 'oauth',
 					success: function (res) {
@@ -79,12 +74,21 @@
 								}
 							});
 						}else if(~res.provider.indexOf('weixin')) {
+							console.log(222222)
 							uni.login({
 								provider: 'weixin',
 								success: function (loginRes) {
 									console.log(loginRes);
 									let code=loginRes.code
+									console.log(1111112)
 									self.getuserinfo(code)
+								},
+								fail(e){
+									console.log(e)
+									uni.showToast({
+										icon:'none',
+										title: e.errMsg
+									});
 								}
 							});
 						}else if(~res.provider.indexOf('sinaweibo')) {
@@ -143,6 +147,7 @@
 			// 获取用户基本信息    merchantManage
 			getuserinfo(code){
 				let self=this
+				console.log(1111113)
 				uni.getUserInfo({
 				  provider: 'weixin',
 				  success: function (infoRes) {
@@ -155,6 +160,10 @@
 				  },
 				  fail:function (res) {
 				  	console.log(res)
+					uni.showToast({
+						icon:'none',
+						title: res.errMsg
+					});
 				  }
 				});
 			},

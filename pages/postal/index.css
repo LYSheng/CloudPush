@@ -1,6 +1,7 @@
 .postal-top{
 	padding: 26upx 82upx;
-	background-color: rgba(174, 179, 192, 0.3);
+	/* background-color: rgba(174, 179, 192, 0.3); */
+	background-color:rgba(84,93,255,0.04);
 	color: #595959;
 }
 .postal-none{
@@ -34,6 +35,7 @@
 .postal-input{
 	color: #545DFF;
 	font-size: 32upx;
+	padding-left: 30upx;
 }
 .postal-wen{
 	padding: 10upx 82upx;
