@@ -42,6 +42,9 @@
 				
 			};
 		},
+		created() {
+			
+		},
 		methods:{
 			toDetails(){
 				uni.navigateTo({

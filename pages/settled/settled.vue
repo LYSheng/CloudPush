@@ -38,13 +38,14 @@
 				</view>
 			</view>
 			<view class="register-li">
-				<view class="register-name">
+				<view class="register-name">  
 					商家类型
 				</view>
 				<view @click="showPicker" class="register-right">
 					<view class="register-picker" placeholder='请输入地址'>
 						{{types}}
 					</view>
+					<image src="/static/image/jt.png" mode="" class="shangjian"></image>
 					<mpvue-picker :deepLength='deepLength' ref="mpvuePicker" :mode="mode" :pickerValueDefault="pickerValueDefault" @onChange="onChangepicker" @onConfirm="onConfirmpicker" @onCancel="onCancelpicker" :pickerValueArray="pickerValueArray"></mpvue-picker>
 				</view>
 			</view>
@@ -56,6 +57,8 @@
 					<view class="register-picker" placeholder='请输入地址'>
 						{{address}}
 					</view>
+					<image src="/static/image/jt.png" mode="" class="shangjian"></image>
+					
 					<mpvue-city-picker ref="mpvueCityPicker" :pickerValueDefault="pickerValueDefault" @onChange="onChange" @onCancel="onCancel" @onConfirm="onConfirm">请选择地址</mpvue-city-picker>
 				</view>
 			</view>

@@ -15,9 +15,7 @@
 				</view>
 			</view>
 			<view class="settled-header">
-				<view class="settled-xian" :style='{ width:lineWidth + "rpx !important" }'>
-					
-				</view>
+				<view class="settled-xian" :style='{ width:lineWidth + "rpx !important" }'></view>
 				<view class="settled-bu settled-buOne">
 					<image class="settled-buImg" src="/static/image/dui.png" mode=""></image>
 				</view>
@@ -103,7 +101,7 @@
 				countdown:'获取验证码',
 				timestatus:false,
 				disabled:false,
-				yanPhone:'',
+				yanPhone:'17717850026',
 				code:'',
 				lineWidth:128,
 				NameText:'负责人姓名',
@@ -116,7 +114,14 @@
 		},
 		methods:{
 			next(type){
+				let z_phone = /^1[3|4|5|6|7|8|9]{1,1}\d{1,1}/;
+				
 				if(type == 1){
+					if(!this.code){
+						this.msg('请输入短信验证码');
+						return false;
+					}
+					
 					this.NameText = '新负责人姓名';
 					this.lineWidth = 330;
 					this.phoneDisabled = false;
@@ -127,6 +132,23 @@
 					this.tapType = 2;
 				}
 				if(type == 2){
+					if(!this.name){
+						this.msg('请输入负责人姓名');
+						return false;
+					}
+					if(!this.yanPhone){
+						this.msg('请输入手机号码');
+						return false;
+					}
+					
+					if(this.yanPhone.length != 11 && !z_phone.test(this.yanPhone)){
+						this.msg('请输入正确的11位手机号码');
+						return false;
+					}
+					if(!this.code){
+						this.msg('请输入短信验证码');
+						return false;
+					}
 					this.inputShow = false;
 					this.lineWidth = 640;
 					this.tapText = '完成';
@@ -134,7 +156,7 @@
 				}
 				
 				if(type == 3){
-					
+					uni.navigateBack();
 				}
 				
 			},
@@ -145,17 +167,23 @@
 			},
 			// 获取验证码
 			getCode(){
-				let self=this;
-				if(self.yanPhone==''){
+				if(this.yanPhone == ''){
 					uni.showToast({
 						icon:'none',
 						title: '请填写手机号码'
 					});
-					return
-				}else{
-					self.getSmsCode()
-					
+					return false;
 				}
+				let param={
+					mobile:this.yanPhone,
+				}
+				// http.Request(api.getSmsCode,'POST',param,function(res){
+					// self.loading=false
+					this.disabled = true;//禁用点击
+					this.countdown=60;
+					this.timestatus=true;
+					this.clear=setInterval(this.countDown,1000)
+				// })
 			},
 			// 验证验证码
 			phoneSubmit(){
@@ -171,29 +199,22 @@
 					code:self.code,
 					phone:self.yanPhone,
 				}
-				http.Request(api.checkSmsCode,'POST',param,function(res){
-					// self.loading=false
-					console.log(res)
-					uni.setStorageSync('phone', self.yanPhone);
-					self.phone= self.yanPhone;
-					self.phoneMask=false;
-					self.yanPhone='';
-				})
+				
+				// http.Request(api.checkSmsCode,'POST',param,function(res){
+				// 	// self.loading=false
+				// 	console.log(res)
+				// 	uni.setStorageSync('phone', self.yanPhone);
+				// 	self.phone= self.yanPhone;
+				// 	self.phoneMask=false;
+				// 	self.yanPhone='';
+				// })
 			},
-			// diao用获取验证码接口
-			getSmsCode(){
-				let self = this;
-				let param={
-					mobile:self.yanPhone,
-				}
-				http.Request(api.getSmsCode,'POST',param,function(res){
-					// self.loading=false
-					console.log(res)
-					self.disabled = true;//禁用点击
-					self.countdown=60;
-					self.timestatus=true;
-					self.clear=setInterval(self.countDown,1000)
-				})
+			msg(text,icon){
+				let img = icon?icon:"none";
+				uni.showToast({
+					icon: img,
+					title: text
+				});
 			},
 			// 倒计时
 			countDown(){

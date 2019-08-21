@@ -1,7 +1,7 @@
 <template>
 	<view class="business-box">
 		<view class="business-search">
-			<input type="text" placeholder-style="font-size:14px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
+			<input type="text" placeholder-style="font-size:16px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
 			<view class="business-search-icon">
 				<image src="/static/image/search.png" class="bus-search-icon" mode=""></image>
 			</view>

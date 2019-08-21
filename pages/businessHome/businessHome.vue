@@ -43,7 +43,7 @@
 		},
 		data() {
 			return {
-				permission: 1,
+				permission: 2,
 				FooterList:[],
 				ShowPage:"",
 				LoadingShow:false,
@@ -52,7 +52,7 @@
 		onLoad(options) {
 			if(options.type==2){
 				this.permission=2
-			} else{
+			} else if(options.type==1){
 				this.permission=1
 			}
 			let { permission } = this;

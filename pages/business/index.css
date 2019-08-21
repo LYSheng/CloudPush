@@ -22,6 +22,7 @@
 }
 .business-tab{
 	background-color: transparent;
+	padding-bottom: 0upx;
 }
 .business-list{
 	border: 1px solid #545DFF;
@@ -50,4 +51,14 @@
 .bus-search-icon{
 	width: 36upx;
 	height: 38upx;
+}
+.business-title{
+	margin-bottom: 2upx;
+	font-size: 26upx;
+}
+.business-text{
+	font-size: 24upx;
+}
+.business-biao{
+	font-size: 26upx;
 }

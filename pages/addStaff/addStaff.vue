@@ -8,7 +8,7 @@
 				<text>name</text>
 			</view>
 			<view class="phone">
-				<text>13635420156</text>
+				<text>{{phone}}</text>
 			</view>
 		</view>
 		<view class="btns">
@@ -22,11 +22,12 @@
 	export default {
 		data() {
 			return {
-				
+				phone:'1',
 			};
 		},
-		onLoad(option){
-			console.log(option)
+		onLoad(options){
+			console.log(options)
+			this.phone = options.uid
 		},
 		methods:{
 			next(){

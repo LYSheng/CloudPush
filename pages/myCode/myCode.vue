@@ -2,7 +2,16 @@
 	<view class="mycodeBgBox">
 		<view v-if="youFlag" class="mycodeBox">
 			<view class="mycode">
-				<image class="code-img" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE08TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMG8yOE5hLV9jX2sxMDAwMGcwN0cAAgSnJVVdAwQAAAAA" mode=""></image>
+				<tki-qrcode class="code-img"
+				    ref="qrcode"
+				    :val="val"
+				    :size="size"
+					:onval="true"  
+					:icon="icon" 
+					:iconSize="iconsize"
+					:loadMake="true"
+					:pdground='pdground'
+				    @result="qrR" />
 			</view>
 			<view class="code-text">
 				请出示二维码，由公司扫码绑定公司关系
@@ -21,13 +30,43 @@
 </template>
 
 <script>
+	import tkiQrcode from "tki-qrcode"
 	export default {
 		data() {
 			return {
-				youFlag:false
+				youFlag:true,//判断是否有公司绑定
+				ifShow: true,
+				val: 'oiygtreploijubgv', // 要生成的二维码值
+				size: 400, // 二维码大小
+				unit: 'upx', // 单位
+				background: '#b4e9e2', // 背景色
+				foreground: '#309286', // 前景色
+				pdground: '#32dbc6', // 角标色
+				icon: '', // 二维码图标
+				iconsize:50, // 二维码图标大小
+				lv: 3, // 二维码容错级别 ， 一般不用设置，默认就行
+				onval: false, // val值变化时自动重新生成二维码
+				loadMake: true, // 组件加载完成后自动生成二维码
+				src: '' // 二维码生成后的图片地址或base64
 			}
 		},
+		components: {tkiQrcode},
+		onLoad(){
+			console.log(222)
+		},
+		created(){
+			console.log(111)
+			let userInfo=uni.getStorageSync('userInfo');
+			console.log(userInfo)
+			this.val='李有生'
+			this.icon=userInfo.avatarUrl;
+			// this.$refs.qrcode._makeCode()
+		},
 		methods: {
+			qrR(res) {
+				console.log(res)
+						this.src = res
+					},
 			loginOut(){
 				uni.showModal({
 				    title: '提示',

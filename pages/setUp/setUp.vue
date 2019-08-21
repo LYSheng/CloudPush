@@ -1,7 +1,7 @@
 <template>
 	<view class="setUpBox">
 		<view class="setUpUl">
-			<view class="setUpList" @click="Change">
+			<view v-if="type" class="setUpList" @click="Change">
 				<view class="setUpName">
 					更换负责人
 				</view>
@@ -24,7 +24,12 @@
 	export default {
 		data() {
 			return {
-				
+				type:false
+			}
+		},
+		onLoad(options){
+			if(options.type==1){
+				this.type=true
 			}
 		},
 		methods: {
@@ -35,8 +40,8 @@
 			},
 			out(){
 				uni.showModal({
-					title: '温馨提示',
-					content: '退出登录',
+					title: '确认退出登陆',
+					content: '退出登陆后，您将重新授权登录',
 					success: function (res) {
 						if (res.confirm) {
 							console.log('用户点击确定');

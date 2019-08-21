@@ -1,5 +1,5 @@
 .postal-top{
-	padding: 26upx 82upx;
+	padding: 26upx 24upx;
 	/* background-color: rgba(174, 179, 192, 0.3); */
 	background-color:rgba(84,93,255,0.04);
 	color: #595959;
@@ -17,16 +17,17 @@
 	height: 36upx;
 }
 .postal-content{
-	padding: 20upx 82upx;
+	padding: 20upx 24upx;
 	border-bottom:1px solid #EBEBEB;
 }
 .postal-title{
 	color: #595959;
-	font-size: 24upx;
+	font-size: 26upx;
 	margin-bottom: 20upx;
 }
 .postal-input-box{
 	display: flex;
+	align-content: center;
 }
 .postal-yuan{
 	color: #545DFF;
@@ -38,17 +39,17 @@
 	padding-left: 30upx;
 }
 .postal-wen{
-	padding: 10upx 82upx;
+	padding: 10upx 20upx;
 	
 }
 .postal-text-miao{
 	color: #595959;
-	font-size: 24upx;
+	font-size: 26upx;
 }
 .postal-ti{
 	padding-left: 16upx;
 	color: #545DFF;
-	font-size: 24upx;
+	font-size: 26upx;
 }
 .postal-ti-box{
 	margin-top: 48upx;
@@ -99,5 +100,5 @@
 	color: #595959;
 	font-size: 24upx;
 	margin-left: 30upx;
-	margin-top: 8upx;
+	/* margin-top: 8upx; */
 }

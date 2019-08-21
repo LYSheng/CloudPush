@@ -1,5 +1,9 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{ // 企业动态 Footer
+		    "path" : "pages/businessHome/businessHome",
+		    "style" : {}
+		},
 		{
 			"path" : "pages/login/login",
 			"style" : {
@@ -16,10 +20,7 @@
 				"navigationBarTitleText": "绑定员工"
 			}
 		}, 
-		{ // 企业动态 Footer
-		    "path" : "pages/businessHome/businessHome",
-		    "style" : {}
-		},
+
 
 		{
 		    "path" : "pages/businessDetails/businessDetails",
@@ -171,8 +172,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "传火云推",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
 	}
-	
 }

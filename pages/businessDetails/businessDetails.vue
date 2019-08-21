@@ -19,8 +19,8 @@
 				<view class="business-biao">
 					数码产品
 				</view>
-				<button v-if='isMember'>联系商家</button>
-				<button v-else >分配</button>
+				<button @click="call">联系商家</button>
+				<button v-if='allocationBtn' @click="allocation">分配</button>
 			</view>
 		</view>
 		<view class="business-infolist">
@@ -52,16 +52,32 @@
 				</view>
 			</view>
 		</view>
+		<mpvue-picker ref="mpvuePicker" :mode="Picker.mode" :pickerValueDefault="Picker.pickerValueDefault" @onConfirm="Picker.onConfirm" @onCancel="Picker.onCancel" :pickerValueArray="Picker.data"></mpvue-picker>
 	</view>
 </template>
 
 <script>
+	import mpvuePicker from '../../components/ly-picker.vue';
 	import http from '../../utils/http.js'
 	import api from '../../utils/api.js'
 	export default {
+		components: {
+			mpvuePicker
+		},
 		data() {
 			return {
 				isMember:false,
+				Picker:{
+					data:[{
+					  label: '活动费',
+					  value: 2
+					}],
+					mode:'selector',
+					pickerValueDefault: [0],
+					onConfirm: () => { this.pickerok() },
+					onCancel: (e) => { this.$refs.mpvuePicker.hide(); },
+				},
+				allocationBtn:true,
 			}
 		},
 		onLoad(options) {
@@ -82,6 +98,17 @@
 				uni.navigateTo({
 					url: '../settledIn/settledIn'
 				});
+			},
+			allocation(phone){
+				this.$refs.mpvuePicker.show();
+			},
+			call(){
+				uni.makePhoneCall({
+				    phoneNumber: '17717850026'
+				});
+			},
+			pickerok(){
+				console.log("ok")
 			}
 		}
 	}
@@ -89,4 +116,5 @@
 
 <style lang="scss" scoped>
 	@import "./index.scss";
+	
 </style>

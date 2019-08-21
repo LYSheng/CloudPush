@@ -61,11 +61,34 @@
 			uni.setNavigationBarTitle({
 			　　title:'我的'
 			})
+			this.setColor()
 		},
 		onLoad() {
-
+			
 		},
 		methods: {
+			// 设置导航背景色
+
+					             setColor(){
+					                 uni.setNavigationBarColor({
+					                     // 字体颜色 仅支持 #ffffff 和 #000000
+					                     frontColor: '#000000',
+										 titleSize:'16px',
+					                     //     背景颜色值，有效值为十六进制颜色
+					                     backgroundColor: '#FFFFFF',
+					                     // animation 结构
+					                     // animation: {
+					                         // duration: 动画时间
+					                         // duration: 500,
+					                         // timingFunc:动画效果
+					                             // linear    动画从头到尾的速度是相同的。
+					                             // easeIn    动画以低速开始
+					                             // easeOut    动画以低速结束。
+					                             // easeInOut    动画以低速开始和结束
+					                         // timingFunc: 'easeIn'
+					                     // }
+					                 });
+								},
 			openPopup(){
 				this.$refs.popup.open()
 			},

@@ -95,7 +95,7 @@
 						暂无数据
 					</view>
 				</view>
-			</view> 
+			</view>
 			<scroll-view v-else  :scroll-top="scrollTop" scroll-y="true" class="business-ul" @scrolltoupper="upper" @scrolltolower="lower">
 				<view  @click.stop.prevent="detail(item.type,item.qrurl)" class="business-lists" v-for="(item,index) in list" :key='index'>
 					<view class="business-left" >
@@ -301,11 +301,12 @@
 					}
 					
 					// 数据判断
-					if(res.pages>0){
-						self.countFlag=false
+					if(res.pages > 0){
+						self.countFlag = false;
 					}else{
-						self.countFlag=true
+						self.countFlag = true;
 					}
+					
 					let list = [
 						{"name":"宁波","merchantCategorySecond":"中餐","leadingName":"名额","phone":"13938565233","addressProvince":"北京市","addressCity":"市辖区","addressCounty":"东城区","addressDetail":"第一","type":3,"qrurl":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFe8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZWEzbE5mLV9jX2sxMDAwMHcwN2UAAgQKCVVdAwQAAAAA"},
 						{"name":"宁波","merchantCategorySecond":"中餐","leadingName":"名额","phone":"13938565233","addressProvince":"北京市","addressCity":"市辖区","addressCounty":"东城区","addressDetail":"第一","type":3,"qrurl":"https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFe8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZWEzbE5mLV9jX2sxMDAwMHcwN2UAAgQKCVVdAwQAAAAA"},

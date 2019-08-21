@@ -62,7 +62,7 @@
 	/* 注册列表开始 */
 	.register-li{
 		display: flex;
-		padding: 30upx 56upx;
+		padding: 30upx 20upx;
 		border-bottom: 1px solid #EBEBEB;
 		background-color: #fff;
 		align-items: center;
@@ -103,7 +103,7 @@
 		font-size: 32upx;
 	}
 	.register-upload-header{
-		padding: 16upx 56upx;
+		padding: 16upx 20upx;
 		background-color: #FAFBFC;
 		font-size: 32upx;
 		color: #485465;
@@ -141,11 +141,12 @@
 		position: relative;
 	}
 	.imgOut{
-		width: 24upx;
-		height: 24upx;
-		position: absolute;
-		right: -12upx;
-		top: -12upx;
+	width: 34rpx;
+	height: 34rpx;
+	position: absolute;
+	right: -17rpx;
+	top: -17rpx;
+
 	}
 	.register-uptext{
 		font-size: 20upx;
@@ -376,6 +377,11 @@
 		height: 100%;
 		/* align-items: center; */
 		justify-content: center;
+	}
+	.shangjian{
+	width: 16rpx;
+	height: 26rpx;
+	
 	}
 	/* 结束 */
 	.m20{

@@ -81,7 +81,7 @@
 			shuMoney(){
 				if(this.expressiveMoney*1>this.Withdrawable*1){
 					console.log(this.expressiveMoney)
-					// this.expressiveMoney=this.Withdrawable
+					this.expressiveMoney=this.Withdrawable
 					// uni.showToast({
 					//     icon:"none",
 					//     title:"纵向滚动 scrollTop 值已被修改为 0"

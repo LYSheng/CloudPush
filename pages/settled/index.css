@@ -77,11 +77,12 @@ width: 100%;
 	position: relative;
 }
 .imgOut{
-	width: 28upx;
-	height: 28upx;
-	position: absolute;
-	right: -14upx;
-	top: -14upx;
+width: 34rpx;
+height: 34rpx;
+position: absolute;
+right: -17rpx;
+top: -17rpx;
+
 }
 .register-uptext{
 	font-size: 24upx;
@@ -140,4 +141,8 @@ width: 100%;
 	margin-right: -10upx;
 }
 
+.shangjian{
+width: 16rpx;
+height: 26rpx;
 
+}

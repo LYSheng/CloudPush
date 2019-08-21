@@ -60,7 +60,7 @@
 			}
 			codeUrl=uni.getStorageSync('codeUrl');
 			this.imgsrc=codeUrl
-		},
+		}, 
 		methods: {
 			join(){
 				uni.showModal({
@@ -71,8 +71,11 @@
 					success: function (res) {
 						if (res.confirm) {
 							console.log('用户点击确定');
-							uni.switchTab({
-								url: '/pages/home/home'
+							// uni.switchTab({
+							// 	url: '/pages/home/home'
+							// });
+							uni.navigateTo({
+								url: '../businessHome/businessHome?type=2'
 							});
 						} else if (res.cancel) {
 							console.log('用户点击取消');

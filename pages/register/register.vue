@@ -62,9 +62,9 @@
 						<block v-else>
 							<image @click="chooseImageOne" class="upImg" src="/static/image/up1.png" mode=""></image>
 						</block>
-						<view class="register-uptext">
+			<!-- 			<view class="register-uptext">
 							正面
-						</view>
+						</view> -->
 					</view>
 					<view class="uphe upImgmargin">
 						<block v-if="imageSrcTwo">
@@ -76,9 +76,9 @@
 						<block v-else>
 							<image @click="chooseImageTwo" class="upImg upImgmargin" src="/static/image/up1.png" mode=""></image>
 						</block>
-						<view class="register-uptext">
+			<!-- 			<view class="register-uptext">
 							反面
-						</view>
+						</view> -->
 					</view>
 
 				</view>

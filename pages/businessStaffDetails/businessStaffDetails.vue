@@ -18,11 +18,11 @@
 				<image src="../../static/image/delete.png" @click="deletaFun" mode="aspectFill"></image>
 			</view>
 		</view>
-		<view class="block">
+		<view class="block" @click="to(1,0)">
 			<text>入驻奖励</text>
 			<image src="../../static/image/detailsIcon.png"></image>
 		</view>
-		<view class="block">
+		<view class="block" @click="to(2,1)">
 			<text>交易分佣</text>
 			<image src="../../static/image/detailsIcon.png"></image>
 		</view>
@@ -52,6 +52,18 @@
 				            console.log('用户点击取消');
 				        }
 				    }
+				});
+			},
+			to(type,tid){
+				let url = '';
+				if(type == 1){
+					url = '../settledIn/settledIn?type=' + tid
+				}
+				if(type == 2){
+					url = '../residenceAward/residenceAward?type=' + tid
+				}
+				uni.navigateTo({
+					url:url
 				});
 			}
 		}
