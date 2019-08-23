@@ -123,7 +123,7 @@
 			},
 			// 全部提现
 			whole(){
-				this.expressiveMoney=this.Withdrawable
+				this.expressiveMoney=this.yindata.withdrawAmount
 			},
 			// 检测金额
 			shuMoney(){

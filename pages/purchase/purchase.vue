@@ -123,7 +123,7 @@
 						for (var i=0;i<res.list.length;i++){
 						    self.list.push(res.list[i]);
 						}
-					}else{
+					}else{ 
 						// 停止分页
 						self.overFlag=true
 					}

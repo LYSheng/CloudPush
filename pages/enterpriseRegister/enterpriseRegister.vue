@@ -373,7 +373,7 @@
 			// 获取验证码
 			getCode(data) {
 				let self = this;
-				http.LoginPost(api.RegSmsCode,param,function(res){
+				http.LoginPost(api.RegSmsCode,data,function(res){
 					self.disabled = true; //禁用点击
 					self.countdown = 60;
 					self.timestatus = true;
