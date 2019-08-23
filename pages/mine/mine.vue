@@ -9,14 +9,14 @@
 							{{userName}}
 						</view>
 						<view class="mine-phone">
-							{{phone}}
+							{{dataJson.mobile}}
 						</view>
 					</view>
 				</view>
 				<image @click="mineContent" src="/static/image/xx.png" class="mine-right" mode=""></image>
 			</view>
 			<!--  -->
-			<view class="mine-list" @click="mycode">
+			<view class="mine-list" @click="mycode(dataJson.id,dataJson.companyName)">
 				<view class="mine-liname">
 					我的二维码
 				</view>
@@ -40,18 +40,17 @@
 
 <script>
 	// import {uniPopup} from '@dcloudio/uni-ui'
+	import http from '../../utils/http.js'
+	import api from '../../utils/api.js'
 	export default {
 		data() {
 			return {
 				tou:'',
 				userName:'',
 				phone:'',
+				dataJson:{},
 			}
 		},
-		// components: {uniPopup},
-		// computed:{
-		// 	console.log(11221)
-		// };
 		created(){
 			let userInfo=uni.getStorageSync('userInfo');
 			console.log(userInfo)
@@ -61,12 +60,21 @@
 			uni.setNavigationBarTitle({
 			　　title:'我的'
 			})
-			this.setColor()
-		},
-		onLoad() {
-			
+			this.setColor();
+			this.getQueryBasicInfo();
 		},
 		methods: {
+			// 获取基本信息
+			getQueryBasicInfo(){
+				let self=this
+				let param={
+					
+				}
+				http.Request(api.queryBasicInfo,'POST',param,function(res){
+					console.log(res)
+					self.dataJson=res
+				})				
+			},
 			// 设置导航背景色
 
 					             setColor(){
@@ -92,9 +100,9 @@
 			openPopup(){
 				this.$refs.popup.open()
 			},
-			mycode(){
+			mycode(id,companyName){
 				uni.navigateTo({
-					url: '../myCode/myCode'
+					url: '../myCode/myCode?code='+id+'&companyName='+companyName
 				});
 			},
 			// 设置

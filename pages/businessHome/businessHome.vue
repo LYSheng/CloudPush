@@ -47,35 +47,53 @@
 				FooterList:[],
 				ShowPage:"",
 				LoadingShow:false,
+				ShowIdx:null,
 			};
 		},
 		onLoad(options) {
-			if(options.type==2){
-				this.permission=2
-			} else if(options.type==1){
-				this.permission=1
-			}
+			console.log(options.type)
 			let { permission } = this;
-			switch(permission)
+			if(options.type){
+				this.permission = options.type*1;
+			}
+			console.log(this.permission)
+			switch(this.permission)
 			{
 				case 1:
 					this.FooterList = [
-						{icon:'../../static/image/f11.png', icon1:"../../static/image/f12.png", active:true, text:"商家管理"}, 
-						{icon:'../../static/image/f21.png', icon1:"../../static/image/f22.png", active:false, text:"员工管理"},
-						{icon:'../../static/image/t41.png', icon1:"../../static/image/t42.png", active:false, text:"企业收入"},
-						{icon:'../../static/image/t21.png', icon1:"../../static/image/t22.png", active:false, text:"企业"},
+						{icon:'../../static/image/f11.png', icon1:"../../static/image/f12.png", active:true, text:"商家管理",com:businessManag}, 
+						{icon:'../../static/image/f21.png', icon1:"../../static/image/f22.png", active:false, text:"员工管理",com:BusinessStaff},
+						{icon:'../../static/image/t41.png', icon1:"../../static/image/t42.png", active:false, text:"企业收入",com:Income},
+						{icon:'../../static/image/t21.png', icon1:"../../static/image/t22.png", active:false, text:"企业",com:BusinessMine},
 					]
 					this.ShowPage = this.FooterList[0].text;
 					break;
 				case 2:
 					this.FooterList = [
-						{icon:'../../static/image/t11.png', icon1:"../../static/image/t12.png", active:true, text:"商家入驻"}, 
-						{icon:'../../static/image/t31.png', icon1:"../../static/image/t32.png", active:false, text:"我的商家"},
-						{icon:'../../static/image/t41.png', icon1:"../../static/image/t42.png", active:false, text:"我的收入"},
-						{icon:'../../static/image/t21.png', icon1:"../../static/image/t22.png", active:false, text:"我的"},
+						{icon:'../../static/image/t11.png', icon1:"../../static/image/t12.png", active:true, text:"商家入驻",com:Home}, 
+						{icon:'../../static/image/t31.png', icon1:"../../static/image/t32.png", active:false, text:"我的商家",com:Business},
+						{icon:'../../static/image/t41.png', icon1:"../../static/image/t42.png", active:false, text:"我的收入",com:Income},
+						{icon:'../../static/image/t21.png', icon1:"../../static/image/t22.png", active:false, text:"我的",com:Mine},
 					]
 					this.ShowPage = this.FooterList[0].text;
 					break;
+			}
+			
+			if(options.idx){
+				let { FooterList } = this;
+				FooterList.map((item,index) => {
+					FooterList[index].active = false;
+				})
+				let ac = this.FooterList[options.idx];
+				this.ShowPage = ac.text;
+				ac.active = true;
+			}
+		},
+		onShow(){
+			if(this.ShowIdx){
+				if(this.FooterList[this.ShowIdx].com.onShow){
+					this.FooterList[this.ShowIdx].com.onShow();
+				}
 			}
 		},
 		methods:{
@@ -86,6 +104,15 @@
 					if(index === idx){
 						FooterList[idx].active = true;
 						this.ShowPage = FooterList[idx].text;
+						this.ShowIdx = idx;
+						if(item.com.onShow){
+							item.com.onShow();
+						}
+						if( this.permission == 1){
+							uni.setNavigationBarTitle({
+							　　title: FooterList[idx].text
+							});
+						}
 					}
 				});
 			}

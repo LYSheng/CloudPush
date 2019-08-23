@@ -130,7 +130,7 @@
 					if(res.isRegister==0){ //去注册
 						uni.navigateTo({
 							url: '../register/register'
-						});
+						}); 
 					}else{
 						if(self.back==true){
 							uni.navigateBack({

@@ -20,20 +20,21 @@
 				<view class="mine-liname">
 					流程手册
 				</view>
-				<image class="mine-more" src="/static/image/jt.png" mode=""></image>
+				<image class="mine-more" src="/static/image/more.png" mode=""></image>
 			</view>
 			<view @click="setUp" class="mine-list">
 				<view class="mine-liname">
 					设置
 				</view>
-				<image class="mine-more" src="/static/image/jt.png" mode=""></image>
+				<image class="mine-more" src="/static/image/more.png" mode=""></image>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	// import {uniPopup} from '@dcloudio/uni-ui'
+	import http from '../../utils/http.js'
+	import api from '../../utils/api.js'
 	export default {
 		data() {
 			return {
@@ -44,41 +45,34 @@
 		},
 		// components: {uniPopup},
 		created() {
-			let userInfo = uni.getStorageSync('userInfo');
-			this.tou=userInfo.avatarUrl;
-			this.userName=userInfo.nickName;
-			this.phone=uni.getStorageSync('phone')
+			// let userInfo = uni.getStorageSync('userInfo');
+			// this.tou = userInfo.avatarUrl;
+			// this.userName = userInfo.nickName;
+			// this.phone = uni.getStorageSync('phone');
+			
+			this.FirmInfo();
 		},
 		methods: {
+			FirmInfo(){
+				http.Request(api.FirmInfo, 'POST', {}, (res) => {
+					uni.setStorageSync('FirmInfo',res);
+					this.userName = res.name;
+					this.phone = res.mobile;
+				});
+				
+			},
+			mineContent(){
+				uni.navigateTo({
+					url:'../enterpriseInfo/enterpriseInfo'
+				})
+			},
 			openPopup(){
 				this.$refs.popup.open()
 			},
 			// 设置
 			setUp(){
 				uni.navigateTo({
-					url: '../setUp/setUp'
-				});
-			},
-			// 编辑信息
-			mineContent(){
-				uni.navigateTo({
-					url: '../enterpriseInfo/enterpriseInfo'
-				});
-			},
-			out(){
-				uni.showModal({
-					title: '温馨提示',
-					content: '退出登录',
-					success: function (res) {
-						if (res.confirm) {
-							uni.clearStorageSync();
-							uni.navigateTo({
-								url: '../login/login'
-							});
-						} else if (res.cancel) {
-							
-						}
-					}
+					url: '../setUp/setUp?type=1'
 				});
 			}
 		}

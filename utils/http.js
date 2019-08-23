@@ -5,6 +5,7 @@ import store from '../store/store'
 import * as types from '../store/types'
 const  baseUrl='https://api30.chuanhuoapp.com';
 // const  baseUrl='https://api.chuanhuoapp.com';
+// const  baseUrl='http://10.0.16.26:9999';
 
 export default {
 	LoginPost(url,data,success,fail){
@@ -146,7 +147,6 @@ export default {
 			data: data,
 			method: 'GET',
 			header: {
-				 // 'Content-Type': 'application/x-www-form-urlencoded',
 				"Content-Type": "application/json"
 			},
 			success: function (res) {
@@ -188,6 +188,7 @@ export default {
 	            let arr = [];
 	            for (var key in jsonObj) {
 	                arr.push(key)
+					
 	            }
 	            arr.sort();
 	            let str = '';

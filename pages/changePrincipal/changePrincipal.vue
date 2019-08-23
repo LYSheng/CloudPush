@@ -97,11 +97,11 @@
 	export default {
 		data() {
 			return {
-				name:'xxx',
+				name:'',
 				countdown:'获取验证码',
 				timestatus:false,
 				disabled:false,
-				yanPhone:'17717850026',
+				yanPhone:'',
 				code:'',
 				lineWidth:128,
 				NameText:'负责人姓名',
@@ -112,6 +112,11 @@
 				tapText:'下一步',
 			};
 		},
+		created() {
+			let FirmInfo = uni.getStorageSync('FirmInfo')
+			this.name = FirmInfo.name;
+			this.yanPhone = FirmInfo.mobile;
+		},
 		methods:{
 			next(type){
 				let z_phone = /^1[3|4|5|6|7|8|9]{1,1}\d{1,1}/;
@@ -121,15 +126,7 @@
 						this.msg('请输入短信验证码');
 						return false;
 					}
-					
-					this.NameText = '新负责人姓名';
-					this.lineWidth = 330;
-					this.phoneDisabled = false;
-					this.nameDisabled = false;
-					this.name = '';
-					this.yanPhone = '';
-					this.code = '';
-					this.tapType = 2;
+					this.NextStep(0);
 				}
 				if(type == 2){
 					if(!this.name){
@@ -149,14 +146,23 @@
 						this.msg('请输入短信验证码');
 						return false;
 					}
-					this.inputShow = false;
-					this.lineWidth = 640;
-					this.tapText = '完成';
-					this.tapType = 3;
+					
+					this.NextStep(1);
 				}
 				
 				if(type == 3){
-					uni.navigateBack();
+					uni.showModal({
+						title: '温馨提示',
+						content: '退出登录',
+						success: function (res) {
+							if (res.confirm) {
+								uni.clearStorageSync();
+								uni.navigateTo({
+									url: '../login/login'
+								});
+							}
+						}
+					});
 				}
 				
 			},
@@ -165,25 +171,73 @@
 					url: '../enterpriseRegister/enterpriseRegister'
 				})
 			},
+			NextStep(step){
+				let data = {
+					code: this.code,
+					mobile: this.yanPhone,
+					name: this.name,
+					step:step
+				};
+				console.log(data);
+				
+				http.Request(api.ChangePrincipal,'POST',data,(res) => {
+					if(step == 0){
+						this.NameText = '新负责人姓名';
+						this.lineWidth = 330;
+						this.phoneDisabled = false;
+						this.nameDisabled = false;
+						this.name = '';
+						this.yanPhone = '';
+						this.code = '';
+						this.tapType = 2;
+						
+						this.disabled = false;
+	                    this.timestatus = false;
+	                    this.countdown = '获取验证码';
+	                    clearInterval(this.clear);
+						
+					}else if(step == 1){
+						// this.inputShow = false;
+						// this.lineWidth = 640;
+						// this.tapText = '完成';
+						// this.tapType = 3;
+						// 
+						
+						uni.showToast({
+							icon:'none',
+							title: '负责人信息更新成功，请重新登录'
+						});
+						setTimeout(() => {
+							uni.clearStorageSync();
+							uni.navigateTo({
+								url: '../login/login'
+							});							
+						},1000)
+					}
+				});
+			},
+			
 			// 获取验证码
 			getCode(){
-				if(this.yanPhone == ''){
+				let zphone = /^1[3|4|5|6|7|8|9]{1,1}\d{9,9}/;
+				if(this.yanPhone == '' || !zphone.test(this.yanPhone)){
 					uni.showToast({
 						icon:'none',
-						title: '请填写手机号码'
+						title: '请填写正确的11位手机号码'
 					});
 					return false;
 				}
-				let param={
+				let data = {
 					mobile:this.yanPhone,
 				}
-				// http.Request(api.getSmsCode,'POST',param,function(res){
+				console.log(data)
+				http.Request(api.ChangeSmsCode,'POST',data,(res) => {
 					// self.loading=false
-					this.disabled = true;//禁用点击
-					this.countdown=60;
-					this.timestatus=true;
-					this.clear=setInterval(this.countDown,1000)
-				// })
+					this.disabled = true; //禁用点击
+					this.countdown = 60;
+					this.timestatus = true;
+					this.clear = setInterval(this.countDown,1000)
+				});
 			},
 			// 验证验证码
 			phoneSubmit(){

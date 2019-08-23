@@ -8,7 +8,7 @@
 						累计进货金额（元）
 					</view>
 					<view class="income-detail-money">
-						397,999,00
+						{{money}}
 					</view>
 				</view>
 				<view class="income-bian">
@@ -16,74 +16,127 @@
 				</view>
 			</view>
 		</view>
-		<!-- list -->
-		<view class="income-uls">
-			<view class="income-li">
-<!-- 				<view class="income-jiaobiao">
-					个人
-				</view> -->
+<!-- list -->
+		<scroll-view :scroll-top="scrollTop" scroll-y="true" @scrolltoupper="upper" @scrolltolower="lower" class="income-uls">
+			<view v-if="countFlag" class="business-datanone">
+				<view class="none-box">
+					<image class="none-img" src="/static/image/wu.png" mode=""></image>
+					<view class="none-text">
+						暂无数据 
+					</view>
+				</view>
+			</view>
+			<view v-else class="income-li" v-for="(item,index) in list">
 				<view class="income-li-left">
 					<view class="income-name">
-						杨老板的小店
+						{{item.name}}
 					</view>
 					<view class="income-yuan">
-						业务员：杨某
+						业务员：{{item.userName}}
 					</view>
 					<view class="income-time">
-						<text>2018-09-13</text>
-						<text>12:30:98</text>
+						<text>{{item.createTime}}</text>
+						<!-- <text>12:30:98</text> -->
 					</view>
 				</view>
 				<view class="income-li-right">
-					￥345，67
+					￥{{item.transAmount}}
 				</view>
 			</view>
-			<view class="income-li">
-<!-- 				<view class="income-jiaobiaoge ">
-					公司
-				</view> -->
-				<view class="income-li-left">
-					<view class="income-name">
-						杨老板的小店
-					</view>
-					<view class="income-yuan">
-						业务员：杨某
-					</view>
-					<view class="income-time">
-						<text>2018-09-13</text>
-						<text>12:30:98</text>
-					</view>
-				</view>
-				<view class="income-li-right">
-					￥345，67
-				</view>
-			</view>
+						<view class="income-li">
+							<view class="income-li-left">
+								<view class="income-name">
+									杨老板的小店
+								</view>
+								<view class="income-yuan">
+									业务员：杨某
+								</view>
+								<view class="income-time">
+									<text>2018-09-13</text>
+									<text>12:30:98</text>
+								</view>
+							</view>
+							<view class="income-li-right">
+								￥345，67
+							</view>
+						</view>
 			
-		</view>
+		</scroll-view>
+		
 	</view>
 </template>
 
 <script>
+	import http from '../../utils/http.js'
+	import api from '../../utils/api.js'
 	export default {
 		data() {
 			return {
 				types:0,
+				merchantId:'test_merchant_11102',
+				money:'',
+				list:[],
+				pageNo:1,
+				pageSize:10,
+				count:0,
+				overFlag:false,
+				countFlag:false,
+				scrollTop: 0,
+				old: {
+				    scrollTop: 0
+				},
 			}
 		},
 		onLoad(options) {
 			this.types=options.type
-			if(this.types==0){
-				uni.setNavigationBarTitle({
-				　　title:'入驻奖励'
-				})
-			}else if(this.types==1){
-				uni.setNavigationBarTitle({
-				　　title:'交易分佣'
-				})
-			}
+			this.merchantId=options.merchantId
+			this.getData()
 		},
 		methods: {
-			
+// 顶部事件
+			upper(e){
+				console.log(e)
+			},
+			// 底部事件
+			lower(e){
+				console.log(e)
+				if(this.pageNo<this.count){
+					this.pageNo=this.pageNo+1;
+					this.getData()
+				}else if(this.pageNo==this.count){
+					console.log('没数据了')
+				}
+			},
+			// 获取
+			getData(){
+				let self=this
+				let param={
+					merchantId:self.merchantId,
+					type:2,
+				}
+				http.Request(api.transDetail,'POST',param,function(res){
+					console.log(res)
+					self.money=res.data
+					self.count=res.pages;
+					// self.list=res.list
+					if(res.list.length>0){
+						for (var i=0;i<res.list.length;i++){
+						    self.list.push(res.list[i]);
+						}
+					}else{
+						// 停止分页
+						self.overFlag=true
+					}
+					
+					// 数据判断
+					if(res.pages>0){
+						self.countFlag=false
+					}else{
+						self.countFlag=true
+					}
+					console.log(self.list)
+				})
+			}
 		}
 	}
 </script>

@@ -9,7 +9,7 @@
 }
 .list-box-top{
 	padding: 20upx 20upx;
-	border-bottom: 1px solid #EBEBEB;
+	/* border-bottom: 1px solid #EBEBEB; */
 }
 .income-list-top{
 	display: flex;

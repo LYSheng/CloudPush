@@ -2,6 +2,13 @@
 	
 	.business-lists{
 		box-shadow: none;
+		padding: 32rpx 20rpx;
+		margin: 0;
+		width: 100%;
+		box-sizing: border-box;
+		.business-left{
+			box-shadow: none;
+		}
 		.business-right{
 			& > view{
 				margin-bottom: 8upx;
@@ -15,6 +22,17 @@
 				color: #fff;
 				text-align: center;
 				font-size: 24upx;
+			}
+		}
+		.business-title{
+			margin-bottom: 0;
+			text,image{
+				vertical-align: middle;
+			}
+			image{
+				margin-left: 10upx;
+				width: 28upx;
+				height: 28upx;
 			}
 		}
 	}
@@ -61,11 +79,13 @@
 			}
 			.text{
 				width: 580upx;
-				margin: 0 auto;
+				margin: 20upx auto 0;
 				text-align: center;
+				line-height: 28upx;
 				text{
 					color: #AEB3C0;
 					font-size: 20upx;
+					line-height: 28upx;
 				}
 			}
 		}

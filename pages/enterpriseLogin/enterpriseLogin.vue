@@ -3,7 +3,7 @@
 		<view class="login-new-box">
 			<view class="login-new-top">
 				<view class="login-new-ul">
-					<view class="login-new-li">
+					<!-- <view class="login-new-li">
 						<view class="login-new-left">
 							国家/地区
 						</view>
@@ -15,7 +15,7 @@
 								>
 							</view>
 						</view>
-					</view>
+					</view> -->
 					<view class="login-new-li">
 						<view class="login-new-left">
 							手机号码
@@ -41,7 +41,7 @@
 			
 			<view class="login-new-bottom">
 				<!-- 加入云推 -->
-				<view class="join" @click='join'>
+				<view class="join" @click='Login'>
 					登录企业账号
 				</view>
 				<!-- 加入云推 -->
@@ -66,6 +66,16 @@
 				code:'',
 			}
 		},
+		created() {
+			let token = uni.getStorageSync('token'),
+			uid = uni.getStorageSync('uid'),
+			secret = uni.getStorageSync('secret');
+			if(secret && uid && token){
+				uni.redirectTo({
+					url:'../businessHome/businessHome?type=1'
+				})
+			}
+		},
 		methods: {
 			// 注册
 			register(){
@@ -75,54 +85,59 @@
 			},
 			// 获取验证码
 			getCode(){
-				let self=this;
-				if(self.yanPhone==''){
+				
+				if(this.yanPhone == ''){
 					uni.showToast({
 						icon:'none',
 						title: '请填写手机号码'
 					});
-					return
-				}else{
-					self.getSmsCode()
-					
+					return false;
 				}
+				
+				let data = {
+					mobile:this.yanPhone,
+				};
+				
+				http.LoginPost(api.SmsCode,data,(res) => {
+					console.log(res)
+					uni.showToast({
+						title: '发送成功'
+					});
+					this.disabled = true;//禁用点击
+					this.countdown=60;
+					this.timestatus=true;
+					this.clear=setInterval(this.countDown,1000);
+					
+				})
 			},
-			// 验证验证码
-			phoneSubmit(){
-				let self=this;
-				if(self.code==''){
+			// 登录
+			Login(){
+				if(!this.yanPhone){
+					uni.showToast({
+						icon:'none',
+						title: '请输入手机号'
+					});
+					return 
+				}
+				if(!this.code){
 					uni.showToast({
 						icon:'none',
 						title: '请输入手机验证码'
 					});
 					return
-				}
+				};
 				let param={
-					code:self.code,
-					phone:self.yanPhone,
-				}
-				http.Request(api.checkSmsCode,'POST',param,function(res){
-					// self.loading=false
-					console.log(res)
-					uni.setStorageSync('phone', self.yanPhone);
-					self.phone= self.yanPhone;
-					self.phoneMask=false;
-					self.yanPhone='';
-				})
-			},
-			// diao用获取验证码接口
-			getSmsCode(){
-				let self = this;
-				let param={
-					mobile:self.yanPhone,
-				}
-				http.Request(api.getSmsCode,'POST',param,function(res){
-					// self.loading=false
-					console.log(res)
-					self.disabled = true;//禁用点击
-					self.countdown=60;
-					self.timestatus=true;
-					self.clear=setInterval(self.countDown,1000)
+					code:this.code,
+					mobile:this.yanPhone,
+				};
+				console.log(param)
+				http.LoginPost(api.FirmLogin,param,function(res){
+					uni.setStorageSync('token', res.token);
+					uni.setStorageSync('uid', res.userId);
+					uni.setStorageSync('secret', res.secret);
+					uni.navigateTo({
+						url:'../businessHome/businessHome?type=1'
+					})
 				})
 			},
 			// 倒计时

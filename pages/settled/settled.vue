@@ -69,9 +69,9 @@
 				<view class="register-right">
 					<input v-model="addressDetail" placeholder-style="color:#AEB3C0" placeholder="请输入详细地址" class="register-input" type="text" value="" />
 				</view>
-				<view class="register-name" @click="getLocation">
+		<!-- 		<view class="register-name" @click="getLocation">
 					获取位置
-				</view>
+				</view> -->
 			</view>
 			<view class="register-li">
 				<view class="register-name">
@@ -201,6 +201,8 @@
 				  leadingName:'',//负责人名称
 				  name:'',//商户名称
 				  phone:'',//联系方式
+				  longitude:'',//经度
+				  latitude:'',//纬度
 			}
 		},
 		components: {
@@ -216,7 +218,7 @@
 		onLoad() {
 			this.imageSrc = '';
 			console.log(this.pickerValueArray)
-			
+			this.getLocation()
 		},
 		methods: {
 			getAuthorizeInfo(a="scope.userLocation"){  //1. uniapp弹窗弹出获取授权（地理，个人微信信息等授权信息）弹窗
@@ -233,12 +235,15 @@
 				},
 			// 获取位置
 			getLocation(){
+				let self=this;
 				uni.getLocation({
 				    type: 'wgs84',
 				    success: function (res) {
 						console.log(res)
 				        console.log('当前位置的经度：' + res.longitude);
 				        console.log('当前位置的纬度：' + res.latitude);
+						self.latitude=res.latitude;
+						self.longitude=res.longitude
 				    }
 				});
 			},
@@ -384,6 +389,48 @@
 					});
 					return
 				}
+				if(this.latitude==''){
+					uni.showToast({
+						icon:'none',
+						title: '请授权获取纬度'
+					});
+					return
+				} 
+				if(this.longitude==''){
+					uni.showToast({
+						icon:'none',
+						title: '请授权获取经度'
+					});
+					return
+				}
+				if(this.address=='请选择地址'){
+					uni.showToast({
+						icon:'none',
+						title: '请选择地区'
+					});
+					return
+				}
+				if((/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g).test(this.name,)){
+					uni.showToast({
+						icon:'none',
+						title: '不可以输入表情'
+					});
+					return
+				}
+				if((/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g).test(this.addressDetail)){
+					uni.showToast({
+						icon:'none',
+						title: '不可以输入表情' 
+					});
+					return
+				}
+				if((/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g).test(this.leadingName)){
+					uni.showToast({
+						icon:'none',
+						title: '不可以输入表情'
+					});
+					return
+				}
 				if(!(/^1[3456789]\d{9}$/.test(this.phone))){
 				       uni.showToast({
 				       	icon:'none',
@@ -447,6 +494,10 @@
 					});
 					return
 				}
+				if(this.latitude==''){
+					this.getLocation()
+					return 
+				}
 				this.saveMerchant()
 			},
 			// 添加上户api
@@ -459,6 +510,8 @@
 					addressProvince:self.addressProvince,//（省）
 					image:self.imageSrc,//
 					// image:'123',//
+					latitude:self.latitude,
+					longitude:self.longitude,
 					leadingName:self.leadingName,//负责人姓名
 					merchantCategoryFirst:self.merchantCategoryFirst,//一级类目
 					merchantCategorySecond:self.merchantCategorySecond,//二级类目名

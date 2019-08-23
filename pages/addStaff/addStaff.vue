@@ -2,13 +2,13 @@
 	<view class="addStaff">
 		<view class="Head">
 			<view class="imgbox">
-				<image src="../../static/image/s1.png" mode="aspectFill"></image>
+				<image :src="staffInfo.image" mode="aspectFill"></image>
 			</view>
 			<view class="name">
-				<text>name</text>
+				<text>{{staffInfo.name}}</text>
 			</view>
 			<view class="phone">
-				<text>{{phone}}</text>
+				<text>{{staffInfo.mobile}}</text>
 			</view>
 		</view>
 		<view class="btns">
@@ -19,19 +19,44 @@
 </template>
 
 <script>
+	import http from '../../utils/http.js'
+	import api from '../../utils/api.js'
 	export default {
 		data() {
 			return {
-				phone:'1',
+				id:undefined,
+				staffInfo:undefined,
 			};
 		},
 		onLoad(options){
 			console.log(options)
-			this.phone = options.uid
+			this.id = options.uid;
+			this.getInfo();
 		},
 		methods:{
+			getInfo(){
+				let data = {
+					id: this.id
+				};
+				http.Request(api.QRGetStaffInfo, 'POST', data, (res) => {
+					console.log(res)
+					this.staffInfo = res;
+				});
+				
+			},
 			next(){
-				uni.navigateBack()
+				
+				let data = {
+					id: this.id
+				};
+				http.Request(api.AddStaff, 'POST', data, (res) => {
+					uni.showToast({
+						title: "添加成功"
+					})
+					uni.reLaunch({
+						url:'../businessHome/businessHome?type=1&idx=1'
+					})
+				});
 			},
 			back(){
 				uni.navigateBack()

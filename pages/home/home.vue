@@ -34,10 +34,31 @@
 			　　title:'商家入驻'
 			});
 			this.setColor()
+			this.loginFlag(0)
 		},
 		methods: {
+			// 是否登陆
+			loginFlag(type){
+				let uid=''
+				 uid=uni.getStorageSync('uid');
+				 console.log(uid)
+				if(uid==''||uid==null){
+					uni.showToast({
+						icon:'none',
+						title: '您还没有登录，请登录'
+					});
+					uni.reLaunch({
+						url: '/pages/login/login'
+					});
+				}else{
+					if(type==1){
+						uni.navigateTo({
+							url: '../settled/settled?id=1'
+						});
+					}
+				}	
+			},
 			// 设置导航背景色
-	
 			             setColor(){
 			                 uni.setNavigationBarColor({
 			                     // 字体颜色 仅支持 #ffffff 和 #000000
@@ -59,9 +80,8 @@
 			                 });
 						},
 			join(){
-				uni.navigateTo({
-					url: '../settled/settled?id=1'
-				});
+				this.loginFlag(1)
+				
 			}
 		}
 	}

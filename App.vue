@@ -5,7 +5,7 @@
 			let uid=''
 			 uid=uni.getStorageSync('uid');
 			 console.log(uid)
-			if(uid==''){
+			if(uid==''||uid==null){
 				uni.showToast({
 					icon:'none',
 					title: '您还没有登录，请登录'
@@ -16,7 +16,8 @@
 			}
 		},
 		onShow: function() {
-			console.log('App Show')
+			console.log('App Show') 
+			
 		},
 		onHide: function() {
 			console.log('App Hide')
@@ -369,7 +370,7 @@
 		font-size: 28upx;
 		text-align: center;
 		color: #333;
-		margin-top: 20upx;
+		margin-top: 20upx; 
 	}
 	.business-datanone{
 		display: flex;
@@ -382,6 +383,23 @@
 	width: 16rpx;
 	height: 26rpx;
 	
+	}
+	
+	
+	
+	.business-title{
+		margin-bottom: 2upx;
+		font-size: 26upx;
+	}
+	.business-text{
+		font-size: 24upx;
+	}
+	.business-biao{
+		font-size: 26upx;
+	}
+	.business-tab{
+		background-color: transparent;
+		padding-bottom: 0upx;
 	}
 	/* 结束 */
 	.m20{

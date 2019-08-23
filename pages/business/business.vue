@@ -1,8 +1,8 @@
 <template>
 	<view class="business-box">
 		<view class="business-search">
-			<input type="text" placeholder-style="font-size:16px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
-			<view class="business-search-icon">
+			<input @blur="businessSearch" v-model="name" type="text" placeholder-style="font-size:16px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
+			<view class="business-search-icon" @click="businessSearch">
 				<image src="/static/image/search.png" class="bus-search-icon" mode=""></image>
 			</view>
 		</view>
@@ -30,7 +30,7 @@
 				</view>
 			</view>
 			<scroll-view v-else  :scroll-top="scrollTop" scroll-y="true" class="business-ul" @scrolltoupper="upper" @scrolltolower="lower">
-				<view  @click.stop.prevent="detail(item.type,item.qrurl)" class="business-lists" v-for="(item,index) in list">
+				<view  @click.stop.prevent="detail(item.type,item.qrurl,item.id)" class="business-lists" v-for="(item,index) in list">
 					<view class="business-left" >
 						<image v-if="item.type==2" class="business-icon" src="/static/image/b1.png" mode=""></image>
 						<image v-if="item.type==3" class="business-icon" src="/static/image/bb1.png" mode=""></image>
@@ -55,8 +55,8 @@
 							联系卖家
 						</view>
 					</view>
-					<view class="business-jiao">
-						14天
+					<view v-if="item.type!=3" class="business-jiao">
+						{{item.expiredTime}}天
 					</view>
 				</view>
 			</scroll-view>
@@ -72,6 +72,7 @@
 		data() {
 			return {
 				countFlag:false,
+				name:null,
 				btnnum:0,
 				pageNo:1,
 				pageSize:10,
@@ -116,6 +117,17 @@
 			                     // }
 			                 });
 						},
+			// sousuo
+			businessSearch(){
+				this.pageNo=1;
+				this.btnnum=0;
+				this.list=[];
+				console.log(this.name)
+				if(this.name==''){
+					this.name=null
+				}
+				this.getList()
+			},
 			// 顶部事件
 			upper(e){
 				console.log(e)
@@ -151,6 +163,7 @@
 				let self=this
 				let param={
 					type:self.btnnum,
+					name:self.name,
 					pageNo:self.pageNo,
 					pageSize:self.pageSize,
 					
@@ -196,20 +209,16 @@
 				});
 			},
 			// 点击详情
-			detail(res,code){
+			detail(res,code,id){
 				console.log(res)
 				if(res==1){
 					uni.setStorageSync('codeUrl', code);
 					uni.navigateTo({
 						url: '../settledStepTwo/settledStepTwo?query=2'
 					});
-				}else if(res==2){//普通商家 
+				}else{
 					uni.navigateTo({
-						url: '../businessDetails/businessDetails?type=2'
-					});
-				}else if(res==3){//会员商家
-					uni.navigateTo({
-						url: '../businessDetails/businessDetails?type=3'
+						url: '../businessDetails/businessDetails?type='+res+'&id='+id
 					});
 				}
 			}

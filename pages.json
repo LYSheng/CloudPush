@@ -14,6 +14,7 @@
 				}
 			}
 		},
+
 		{
 			"path" : "pages/addStaff/addStaff",
 			"style" : {
@@ -97,7 +98,14 @@
         ,{
             "path" : "pages/income/income",
             "style" : {
-				"navigationBarTitleText": "我的收入"
+				"navigationBarTitleText": "我的收入",
+				"enablePullDownRefresh": true,
+				"app-plus":{
+					"pullToRefresh":{
+						"support":true,
+						"style":"circle"
+					}
+				}
 			}
         }
         ,{
@@ -121,18 +129,31 @@
         ,{
             "path" : "pages/postalAdd/postalAdd",
             "style" : {
-				
+				"navigationBarTitleText": "添加银行卡"
 			}
         }
         ,{
             "path" : "pages/myCode/myCode",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "我的二维码",
+				"enablePullDownRefresh": true,
+				"app-plus":{
+					"pullToRefresh":{
+						"support":true,
+						"style":"circle"
+					}
+				}
+			}
         },{
             "path" : "pages/setUp/setUp",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "设置"
+			}
         },{
             "path" : "pages/mineContent/mineContent",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "编辑信息"
+			}
         },
 		{
 		    "path" : "pages/businessStaffDetails/businessStaffDetails",
@@ -166,7 +187,9 @@
         }
         ,{
             "path" : "pages/settledIn/settledIn",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "入驻奖励"
+			}
         }
     ],
 	"globalStyle": {

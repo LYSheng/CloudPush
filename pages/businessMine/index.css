@@ -1,13 +1,13 @@
 .mine-bgbox{
-	padding: 40upx;
+	/* padding: 20upx; */
 }
 .mine-box{
-	border-radius: 20upx;
-	box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
+	/* border-radius: 20upx; */
+	/* box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1); */
 	overflow: hidden;
 }
 .mine-top{
-	padding: 32upx 36upx;
+	padding: 42upx 36upx;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -19,42 +19,45 @@
 	align-items: center;
 }
 .mine-li-img{
-	width: 112upx;
-	height: 112upx;
+	width: 140upx;
+	height: 140upx;
 	margin-right: 16upx;
 	border-radius: 50%;
 	overflow: hidden;
+	box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
 }
 .mine-name{
 	color: #595959;
-	font-size: 24upx;
+	font-size: 28upx;
+	font-weight: bold;
 }
 .mine-phone{
-	color: #292F4C;
-	font-size: 20upx;
+	color: #595959;
+	font-size: 24upx;
 	margin-top: 8upx;
 }
 .mine-right{
 	flex-grow: 0;
 	flex-shrink: 0;
-	width: 46upx;
-	height: 32upx;
+	width: 50upx;
+	height: 40upx;
 }
 .mine-list{
 	display: flex;
-	padding:28upx 36upx ;
+	padding: 30upx 20upx;
+	min-height: 55upx;
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 1px solid #EBEBEB;
 }
-.mine-list:last-child{
+/* .mine-list:last-child{
 	border-bottom: none;
-}
+} */
 .mine-liname{
 	color: #595959;
-	font-size: 24upx;
+	font-size: 28upx;
 }
 .mine-more{
-	width: 12upx;
-	height: 20upx;
+	width: 8upx;
+	height: 33upx;
 }

@@ -3,7 +3,7 @@
 }
 .mine-box{
 	/* border-radius: 20upx; */
-	box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1);
+	/* box-shadow:0px 4px 20px 0px rgba(41,47,76,0.1); */
 	overflow: hidden;
 }
 .mine-top{
@@ -32,7 +32,7 @@
 }
 .mine-phone{
 	color: #292F4C;
-	font-size: 20upx;
+	font-size: 26upx;
 	margin-top: 8upx;
 }
 .mine-right{
@@ -49,7 +49,7 @@
 	border-bottom: 1px solid #EBEBEB;
 }
 .mine-list:last-child{
-	border-bottom: none;
+	/* border-bottom: none; */
 }
 .mine-liname{
 	color: #595959;

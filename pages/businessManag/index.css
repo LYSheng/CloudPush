@@ -4,8 +4,8 @@
 }
 
 .business-text-fen{
-	color: #545DFF;
-	font-size: 24upx;
+	color: #595959;
+	font-size: 22upx;
 	margin-top: 10upx;
 }
 .business-text-lan{
@@ -28,6 +28,7 @@
 }
 .business-tab{
 	background-color: transparent;
+	padding-bottom: 0;
 }
 .business-list{
 	background-color: #fff;
@@ -63,17 +64,18 @@
 .shai-chong{
 	font-size: 28upx;
 	color: #fff;
-	padding-left:26upx;
+	width: 80rpx;
 }
 .business-sou-icon{
-	width: 32upx;
-	height: 34upx;
+	width: 40upx;
+	height: 40upx;
 	flex-grow: 0;
 	flex-shrink: 0;
+	
 }
 .business-new-input{
 	flex-grow: 1;
-	color: #fff;
+	color: #dfdfdf;
 	font-size: 28upx;
 	padding-left: 30upx;
 }
@@ -82,7 +84,7 @@
 .shai-box{
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,0.8);
+	background-color: transparent;
 	position: fixed;
 	left: 0px;
 	top: 0px;
@@ -91,8 +93,20 @@
 	flex-direction:column;
 	height:100%; 
 }
+.shai-box .rgba{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 12;
+	background-color: transparent;
+}
+.shai-content,.shai-top{
+	z-index: 13;
+}
 .shai-top{
-	border-bottom: 2px solid #333;
+	border-bottom: 1px solid rgba(255,255,255,.3);
 }
 .shai-list{
 	display: flex;

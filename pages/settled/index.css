@@ -77,11 +77,12 @@ width: 100%;
 	position: relative;
 }
 .imgOut{
-width: 34rpx;
-height: 34rpx;
+width: 38rpx;
+height: 38rpx;
 position: absolute;
-right: -17rpx;
-top: -17rpx;
+right: -19rpx;
+top: -19rpx;
+
 
 }
 .register-uptext{

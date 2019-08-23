@@ -7,7 +7,7 @@
 				</view>
 				<view class="register-right">
 					<input disabled placeholder-style="color:#AEB3C0" placeholder="请输入公司名称" class="register-input" type="text" value=""
-					 v-model="companyName" />
+					 v-model="FirmInfo.companyName" />
 				</view>
 			</view>
 			<view class="register-li">
@@ -15,8 +15,8 @@
 					办公地址
 				</view>
 				<view @click="() => { this.$refs.mpvueCityPicker.show(); }" class="register-right">
-					<view class="register-picker" placeholder='请输入地址'>
-						{{address}}
+					<view class="register-picker" placeholder='请选择地址'>
+						{{FirmInfo.addressProvince}} {{FirmInfo.addressCity}} {{FirmInfo.addressCounty}}
 					</view>
 				</view>
 			</view>
@@ -25,7 +25,7 @@
 					详细地址
 				</view>
 				<view class="register-right">
-					<input v-model="adders" placeholder-style="color:#AEB3C0" placeholder="请输入详细地址" class="register-input" type="text"/>
+					<input v-model="FirmInfo.addressDetail" placeholder-style="color:#AEB3C0" placeholder="请输入详细地址" class="register-input color" type="text"/>
 				</view>
 			</view>
 			<view class="register-li">
@@ -33,7 +33,7 @@
 					负责人姓名
 				</view>
 				<view class="register-right">
-					<input disabled v-model="username" placeholder-style="color:#AEB3C0" placeholder="请输入负责人姓名" class="register-input"
+					<input disabled v-model="FirmInfo.name" placeholder-style="color:#AEB3C0" placeholder="请输入负责人姓名" class="register-input"
 					type="text"/>
 				</view>
 			</view>
@@ -43,7 +43,7 @@
 				</view>
 				<view class="register-right">
 					<input disabled maxlength="11" placeholder-style="color:#AEB3C0" placeholder="请输入手机号" class="register-input" type="text"
-					 value="" v-model="phone" />
+					 value="" v-model="FirmInfo.mobile" />
 				</view>
 			</view>
 			<view class="register-li">
@@ -52,7 +52,7 @@
 				</view>
 				<view class="register-right">
 					<input disabled maxlength="11" placeholder-style="color:#AEB3C0" placeholder="请输入统一社会信用代码" class="register-input"
-					 type="text" value="" v-model="creditCode" />
+					 type="text" value="" v-model="FirmInfo.businessLicenseNo" />
 				</view>
 			</view>
 		</view>
@@ -105,6 +105,7 @@
 				adders: '详细地址', //详细地址
 				businessImg: '../../static/image/b1.png', //营业执照
 				address: '请选择地址', //常住地
+				FirmInfo:undefined,
 			}
 		},
 		components: {
@@ -112,6 +113,9 @@
 		},
 		onLoad() {
 			this.session = uni.getStorageSync('session');
+			this.FirmInfo = uni.getStorageSync('FirmInfo');
+			console.log(this.FirmInfo)
+			
 		},
 		methods: {
 			// 预览
@@ -126,23 +130,18 @@
 			
 			// 三级联动 确定事件
 			onConfirm(e) {
-				this.address = e.label
-				// let newaddress = this.address.split("-");
+				let address = e.label.split("-");
 				this.$refs.mpvueCityPicker.hide();
+				this.FirmInfo.addressProvince = address[0];
+				this.FirmInfo.addressCity = address[1];
+				this.FirmInfo.addressCounty = address[2];
 			},
 			
 			// 点击加入
 			join() {
 				
-				if (this.adders == '') {
-					uni.showToast({
-						icon: 'none',
-						title: '请输入详细地址'
-					});
-					return
-				};
 				
-				if (this.address === '请选择地址') {
+				if (!this.FirmInfo.addressProvince) {
 					uni.showToast({
 						icon: 'none',
 						title: '请选择常住地址'
@@ -150,7 +149,15 @@
 					return
 				};
 				
-				if ((/^ +| +$/g).test(this.adders)) {
+				if (this.FirmInfo.addressDetail == '') {
+					uni.showToast({
+						icon: 'none',
+						title: '请输入详细地址'
+					});
+					return
+				};
+				
+				if ((/^ +| +$/g).test(this.FirmInfo.addressDetail)) {
 					uni.showToast({
 						icon: 'none',
 						title: '详细地址含有空格'
@@ -159,15 +166,20 @@
 				};
 				
 				let data = {
-					address:this.address,
-					addres:this.addres
+					addressProvince: this.FirmInfo.addressProvince,
+					addressCity: this.FirmInfo.addressCity,
+					addressCounty: this.FirmInfo.addressCounty,
+					addressDetail: this.FirmInfo.addressDetail,
 				};
-				http.LoginPost(api.register, data, (res) => {
-					uni.setStorageSync('token', res.token);
-					uni.setStorageSync('uid', res.userId);
-					uni.setStorageSync('secret', res.secret);
-					
-					uni.navigateBack();
+				
+				http.Request(api.UpDateFirmInfo, 'POST', data, (res) => {
+					uni.showToast({
+						icon:'none',
+						title:'修改成功'
+					});
+					uni.reLaunch({
+						url:'../businessHome/businessHome?type=1&idx=3'
+					})
 				})
 
 			}
@@ -180,5 +192,11 @@
 		.register-name {
 			width: 270rpx;
 		}
+	}
+	.register-input{
+		opacity: .6;
+	}
+	.color{
+		opacity: 1;
 	}
 </style>

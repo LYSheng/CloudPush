@@ -27,7 +27,7 @@
 }
 .postal-input-box{
 	display: flex;
-	align-content: center;
+	align-items: center;
 }
 .postal-yuan{
 	color: #545DFF;
@@ -36,7 +36,8 @@
 .postal-input{
 	color: #545DFF;
 	font-size: 32upx;
-	padding-left: 30upx;
+	padding-left: 4upx;
+	/* font-weight: bold; */
 }
 .postal-wen{
 	padding: 10upx 20upx;
@@ -85,11 +86,12 @@
 }
 .postal-bank-xx{
 	display: flex;
-	
+	align-items: center;
 }
 .postal-bank-icon{
 	width: 30upx;
 	height: 30upx;
+	margin-right: 6upx;
 }
 .postal-bank-name{
 	color: #595959;
@@ -101,4 +103,9 @@
 	font-size: 24upx;
 	margin-left: 30upx;
 	/* margin-top: 8upx; */
+	margin-left: 36upx;
+	margin-top: 4upx;
+}
+.mtop{
+	margin-top: 30upx;
 }

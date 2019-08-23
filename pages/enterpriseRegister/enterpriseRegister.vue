@@ -17,7 +17,7 @@
 					<view class="register-picker" placeholder='请输入地址'>
 						{{address}}
 					</view>
-					<mpvue-city-picker class='' ref="mpvueCityPicker" :pickerValueDefault="pickerValueDefault" @onChange="onChange"
+					<mpvue-city-picker class='' ref="mpvueCityPicker" :pickerValueDefault="pickerValueDefault"
 					 @onCancel="onCancel" @onConfirm="onConfirm"></mpvue-city-picker>
 				</view>
 			</view>
@@ -46,7 +46,7 @@
 				<view class="register-right">
 					<input maxlength="11" v-model="phone" placeholder-style="color:#AEB3C0" placeholder="请输入手机号码" class="register-input"
 					 type="text" value="" />
-					<button @click="getCode" :disabled="disabled" class="phone-me-get">
+					<button @click='verify("smscode")' :disabled="disabled" class="phone-me-get">
 						        {{countdown}} <text v-show="timestatus">秒重获</text>
 					</button>
 				</view>
@@ -91,7 +91,7 @@
 			</view>
 		</view>
 		<!-- 加入云推 -->
-		<view class="join" @click='join'>
+		<view class="join" @click='verify("reg")'>
 			加入云推
 		</view>
 		<!-- phone   盒子 -->
@@ -178,36 +178,6 @@
 			this.session = uni.getStorageSync('session');
 		},
 		methods: {
-			// 获取手机号
-			getPhoneNumber: function(e) {
-				let self = this
-				if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-					console.log('拒绝了')
-					// self.phoneMask=true
-					uni.showToast({
-						icon: 'none',
-						title: '请授权获取手机号'
-					});
-				} else {
-					let encryptedData = e.detail.encryptedData
-					let iv = e.detail.iv
-					self.getPhone(encryptedData, iv)
-				}
-			},
-			getPhone(encryptedData, iv) {
-				let self = this
-				let param = {
-					encrypted: encryptedData,
-					iv: iv,
-					session: self.session
-				}
-				http.LoginPost(api.queryWxMiniMobile, param, function(res) {
-					// self.loading=false
-					console.log(res)
-					self.phone = res.mobile
-					uni.setStorageSync('phone', self.phone);
-				})
-			},
 			// 上传营业执照
 			chooseImageOne: function() {
 				uni.chooseImage({
@@ -257,9 +227,6 @@
 			showCityPicker() {
 				this.$refs.mpvueCityPicker.show();
 			},
-			onChange(e) {
-				console.log(e);
-			},
 			onCancel(e) {
 				this.$refs.mpvueCityPicker.hide();
 			},
@@ -278,11 +245,9 @@
 			phoneMaskQu() {
 				this.phoneMask = false
 			},
-			// 点击加入
-			join() {
-				// uni.reLaunch({
-				//     url: '../businessHome/businessHome?type=2'
-				// });
+			// 校验信息是否填写
+			verify(type){
+				
 				let self = this
 				if (self.imageSrcOne == '') {
 					uni.showToast({
@@ -302,13 +267,6 @@
 					uni.showToast({
 						icon: 'none',
 						title: '请输入手机号'
-					});
-					return
-				};
-				if (self.code == '') {
-					uni.showToast({
-						icon: 'none',
-						title: '请输入手机验证码'
 					});
 					return
 				};
@@ -333,14 +291,14 @@
 					});
 					return
 				};
-				if (self.daiCode == '') {
+				if (self.creditCode == '') {
 					uni.showToast({
 						icon: 'none',
 						title: '请输入信用代码'
 					});
 					return
 				};
-
+				
 				if ((/^ +| +$/g).test(this.username)) {
 					uni.showToast({
 						icon: 'none',
@@ -362,58 +320,68 @@
 					});
 					return
 				};
-
+				
 				let addressCity, addressCounty, addressProvince
-				let param = {
+				let data = {
 					addressCity: self.city,
 					addressCounty: self.county,
 					addressDetail: self.adders,
 					addressProvince: self.province,
-					code: self.code,
-					name: self.username,
-					phone: self.phone,
+					leaderName: self.username,
+					leaderMobile: self.phone,
+					name:self.username,
+					image:self.imageSrcOne,
+					businessLicenseNo:self.creditCode,
 					session: self.session
+				};
+				console.log(data)
+				if(type == 'smscode'){
+					this.getCode(data);
+				}else if(type == 'reg'){
+					
+					if (self.code == '') {
+						uni.showToast({
+							icon: 'none',
+							title: '请输入手机验证码'
+						});
+						return
+					};
+					data.smsCode = self.code;
+					this.join(data);
 				}
-				console.log(param)
-				return false;
-				http.LoginPost(api.register, param, function(res) {
-					// self.loading=false
-					console.log(res)
+				
+			},
+			// 点击加入
+			join(data) {
+				// uni.reLaunch({
+				//     url: '../businessHome/businessHome?type=2'
+				// });
+				http.LoginPost(api.FirmReg, data, function(res) {
+					uni.showToast({
+						title: '注册成功'
+					});
 					uni.setStorageSync('token', res.token);
 					uni.setStorageSync('uid', res.userId);
 					uni.setStorageSync('secret', res.secret);
+					uni.navigateTo({
+						url:'../businessHome/businessHome?type=1'
+					})
 
 				})
 
 			},
 			// 获取验证码
-			getCode() {
+			getCode(data) {
 				let self = this;
-				if (self.phone == '') {
+				http.LoginPost(api.RegSmsCode,param,function(res){
+					self.disabled = true; //禁用点击
+					self.countdown = 60;
+					self.timestatus = true;
+					self.clear = setInterval(self.countDown, 1000);
 					uni.showToast({
-						icon: 'none',
-						title: '请填写手机号码'
+						title: '验证码发送成功'
 					});
-					return
-				} else {
-					self.getSmsCode()
-
-				}
-			},
-			// diao用获取验证码接口
-			getSmsCode() {
-				let self = this;
-				let param = {
-					mobile: self.phone,
-				}
-				// http.Request(api.getSmsCode,'POST',param,function(res){
-				// self.loading=false
-				// console.log(res)
-				self.disabled = true; //禁用点击
-				self.countdown = 60;
-				self.timestatus = true;
-				self.clear = setInterval(self.countDown, 1000)
-				// })
+				})
 			},
 			// 倒计时
 			countDown() {
