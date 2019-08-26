@@ -66,7 +66,7 @@
 						<block>
 							<view class="imgaboust">
 								<!-- <image @click="imageSrcOneNone" class="imgOut" src="/static/image/up2.png" mode=""></image> -->
-								<image @click="previewImage(businessImg)" :src="businessImg" class="upImg" mode="widthFix"></image>
+								<image @click="previewImage(FirmInfo.businessLicenseImage)" :src="FirmInfo.businessLicenseImage" class="upImg" mode="widthFix"></image>
 							</view>
 						</block>
 					</view>

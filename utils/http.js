@@ -108,6 +108,7 @@ export default {
 						return success(result)
 					}else if(res.data.code==10102){
 						// 退出登录
+						uni.clearStorageSync();
 						uni.showToast({
 							icon:'none',
 							title: res.data.error_txt+'请重新登陆'
@@ -186,6 +187,7 @@ export default {
 	},
 	 jsonSort(jsonObj) {
 	            let arr = [];
+				
 	            for (var key in jsonObj) {
 	                arr.push(key)
 					

@@ -225,7 +225,7 @@
 			},
 			to(type,tid){
 				let userid = this.StaffInfo.userId;
-				uni.redirectTo({
+				uni.navigateTo({
 					url: '../residenceAward/residenceAward?type=' + tid + '&id=' + userid
 				});
 			}

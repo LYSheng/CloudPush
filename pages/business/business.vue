@@ -1,9 +1,9 @@
 <template>
 	<view class="business-box">
 		<view class="business-search">
-			<input @blur="businessSearch" v-model="name" type="text" placeholder-style="font-size:16px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
-			<view class="business-search-icon" @click="businessSearch">
-				<image src="/static/image/search.png" class="bus-search-icon" mode=""></image>
+			<input v-model="name" type="text" placeholder-style="font-size:16px;color:#dfdfdf;" placeholder="请输入商家名称/负责人" class="business-search-input" value="" />
+			<view class="business-search-icon" >
+				<image @tap="businessSearch" src="/static/image/search.png" class="bus-search-icon" mode=""></image>
 			</view>
 		</view>
 		<view class="business-tab">
@@ -119,7 +119,7 @@
 						},
 			// sousuo
 			businessSearch(){
-				this.pageNo=1;
+				this.pageNo=1; 
 				this.btnnum=0;
 				this.list=[];
 				console.log(this.name)

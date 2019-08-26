@@ -19,6 +19,7 @@
 	height: 38upx;
 	flex-grow: 0;
 	flex-shrink: 0;
+	padding-left: 30upx;
 }
 .business-tab{
 	background-color: transparent;

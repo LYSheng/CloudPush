@@ -162,13 +162,20 @@
 				 county:'',
 				 city:'',
 				 province:'',
+				 tou:'',
 			}
-		},
+		}, 
 		components: {
 			mpvueCityPicker
 		},
 		onLoad() {
 			this.session=uni.getStorageSync('session');
+			
+		},
+		onShow(){
+			let userInfo=uni.getStorageSync('userInfo');
+			console.log(userInfo)
+			this.tou=userInfo.avatarUrl;
 		},
 		methods: {
 			// 预览
@@ -446,7 +453,8 @@
 					idCardNo:self.idCard,
 					name:self.username,
 					phone:self.phone,
-					session:self.session
+					session:self.session,
+					image:self.tou
 				}
 				http.LoginPost(api.register,param,function(res){
 					// self.loading=false

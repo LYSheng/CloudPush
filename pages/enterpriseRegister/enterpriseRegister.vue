@@ -247,8 +247,18 @@
 			},
 			// 校验信息是否填写
 			verify(type){
+				let Credit = /^[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g;
+				let iconRule2 = /[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/ig
+				let self = this;
 				
-				let self = this
+				if(iconRule2.test(this.username)){
+					uni.showToast({
+						icon: 'none',
+						title: '请不要输入表情'
+					});
+					return
+				}
+				
 				if (self.imageSrcOne == '') {
 					uni.showToast({
 						icon: 'none',
@@ -259,7 +269,7 @@
 				if (self.username == '') {
 					uni.showToast({
 						icon: 'none',
-						title: '请输入姓名'
+						title: '请输入公司名称'
 					});
 					return
 				};
@@ -270,6 +280,14 @@
 					});
 					return
 				};
+				if (self.fuUserName == '') {
+					uni.showToast({
+						icon: 'none',
+						title: '请输入负责人姓名'
+					});
+					return
+				};
+				
 				if (!(/^1[3456789]\d{9}$/.test(this.phone))) {
 					uni.showToast({
 						icon: 'none',
@@ -299,10 +317,26 @@
 					return
 				};
 				
+				if(!Credit.test(self.creditCode)){
+					uni.showToast({
+						icon: 'none',
+						title: '请输入正确的信用代码'
+					});
+					return
+				}
+				
 				if ((/^ +| +$/g).test(this.username)) {
 					uni.showToast({
 						icon: 'none',
-						title: '姓名含有空格'
+						title: '公司名称含有空格'
+					});
+					return
+				};
+				
+				if ((/^ +| +$/g).test(this.fuUserName)) {
+					uni.showToast({
+						icon: 'none',
+						title: '负责人姓名含有空格'
 					});
 					return
 				};
@@ -327,7 +361,7 @@
 					addressCounty: self.county,
 					addressDetail: self.adders,
 					addressProvince: self.province,
-					leaderName: self.username,
+					leaderName: self.fuUserName,
 					leaderMobile: self.phone,
 					name:self.username,
 					image:self.imageSrcOne,

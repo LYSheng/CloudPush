@@ -152,7 +152,7 @@
 					});
 				}else{
 					uni.navigateTo({
-						url: '../residenceAward/residenceAward?type='+type+'&money='+money+'&id='+id
+						url: '../residenceAward/residenceAward?type='+type+'&money='+money
 					});
 				}
 				

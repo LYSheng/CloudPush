@@ -147,11 +147,13 @@
 				}
 				http.Request(api.queryBankInfoByCardNumber,'POST',param,function(res){
 					console.log(res.id*1)
-					self.pickerValueDefault=[]
+					self.pickerValueDefault=[] 
 					self.bank=res.bankName;
 					self.yinId=res.id
-					// self.pickerValueDefault=self.pickerValueDefault.push(res.id*1)
-					// console.log(self.pickerValueDefault)
+					let arrayNew=[]
+					arrayNew.push(res.id*1-1)
+					self.pickerValueDefault=arrayNew
+					console.log(self.pickerValueDefault)
 				})					
 			},
 			// 获取银行列表

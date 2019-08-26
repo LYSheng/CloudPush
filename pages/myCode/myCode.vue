@@ -1,6 +1,6 @@
 <template>
 	<view class="mycodeBgBox">
-		<view v-if="companyName==''" class="mycodeBox">
+		<view v-if="flag==true" class="mycodeBox">
 			<view class="mycode">
 				<tki-qrcode class="code-img"
 				    ref="qrcode"
@@ -52,6 +52,7 @@
 				src: '', // 二维码生成后的图片地址或base64
 				id:'',
 				companyName:'',
+				flag:true,
 			}
 		},
 		components: {tkiQrcode},
@@ -60,7 +61,15 @@
 			this.companyName=options.companyName
 			let userInfo=uni.getStorageSync('userInfo');
 			this.icon=userInfo.avatarUrl;
+			console.log(111)
+		},
+		onShow(){
 			console.log(222)
+			if(this.companyName==''){
+				this.flag=true
+			}else{
+				this.flag=false
+			}
 		},
 		onPullDownRefresh() {
 			 console.log(22222)

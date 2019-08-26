@@ -124,11 +124,15 @@
 			// 获取列表
 			transDetail(){
 				let self=this
-				let param={
-					type:this.types,
-					userId:this.id,
-					pageNo:this.pageNo,
-					pageSize:this.pageSize
+				let param={}
+				param={
+					type:self.types,
+					userId:self.id,
+					pageNo:self.pageNo,
+					pageSize:self.pageSize
+				}
+				if(!self.id){
+					delete param.userId;
 				}
 				http.Request(api.transDetail,'POST',param,function(res){
 					console.log(res)

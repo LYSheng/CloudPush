@@ -5,6 +5,14 @@
 		    "style" : {}
 		},
 		{
+		    "path" : "pages/postalAdd/postalAdd",
+		    "style" : {
+				"navigationBarTitleText": "添加银行卡"
+			}
+		},
+
+
+		{
 			"path" : "pages/login/login",
 			"style" : {
 				"navigationBarTitleText": "传火云推",
@@ -14,7 +22,6 @@
 				}
 			}
 		},
-
 		{
 			"path" : "pages/addStaff/addStaff",
 			"style" : {
@@ -124,12 +131,6 @@
             "path" : "pages/postal/postal",
             "style" : {
 				"navigationBarTitleText": "提现"
-			}
-        }
-        ,{
-            "path" : "pages/postalAdd/postalAdd",
-            "style" : {
-				"navigationBarTitleText": "添加银行卡"
 			}
         }
         ,{
