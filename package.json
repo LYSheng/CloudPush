@@ -14,7 +14,7 @@
     "js-base64": "^2.5.1",
     "mpvue-citypicker": "^1.0.6",
     "mpvue-picker": "^2.1.5",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.2.0",
     "sha1": "^1.1.1",
     "tki-qrcode": "^0.1.6",
